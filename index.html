@@ -227,14 +227,18 @@ function renderGrid(){
   reveal($("#grid"));
 }
 /* lightbox на цял екран */
+/* lightbox на цял екран */
 function openLb(id){
-  const a = ARTS.find(x => x.id === id); if(!a) return; cur = id;
-  $("#lbArt").innerHTML = pic(a);
-  $("#lbInfo").innerHTML = `<span class="meta">${CATEGORIES[a.type] || ""}</span><h3>${a.title}</h3><p><strong>Техника:</strong> ${tech(a)}</p>`
-    + (a.size ? `<p><strong>Размери:</strong> ${a.size}</p>` : "") + `<p>${a.desc || DESC}</p>`
-    + `<div class="buy"><span class="price"${a.sold ? ' style="text-decoration:line-through;opacity:.55"' : ""}>${money(a.price)}</span>${a.sold ? '<span class="sold">Продадена</span>' : `<button class="btn snipcart-add-item" id="lbAdd" ${sc(a)}>Добави в количката</button>`}</div>`;
-  const b = $("#lbAdd"); if(b) b.addEventListener("click", () => $("#lb").close());
-  if(!$("#lb").open) $("#lb").showModal();
+    const a = ARTS.find(x => x.id === id); if(!a) return; cur = id;
+    $("#lbArt").innerHTML = pic(a);
+    $("#lbInfo").innerHTML = `<span>${CATEGORIES[a.type] || ""}</span><h3>${a.title}</h3><p class="price">${a.price} ${SITE.currency}</p>${a.size ? `<p><strong>Размер:</strong> ${a.size}</p>` : ""} ${a.desc ? `<p>${a.desc}</p>` : ""}
+    <div class="buy">
+      ${a.sold ? `<span class="sold">Продадена</span>` : `<button class="btn snipcart-add-item" data-item-id="${a.id}" data-item-price="${a.price}" data-item-name="${a.title}" data-item-url="https://marcgallery.eu/">Купи сега</button>`}
+    </div>`;
+    const b = $("#lbClose"); if(b) b.onclick = () => $("#lb").close();
+    if(!$("#lb").open) $("#lb").showModal();
+}
+
 }
 function step(d){ const l = vis(), i = l.findIndex(a => a.id === cur); if(i > -1) openLb(l[(i + d + l.length) % l.length].id); }
 $("#lbClose").onclick = () => $("#lb").close();
