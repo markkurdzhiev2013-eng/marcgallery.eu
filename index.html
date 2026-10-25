@@ -270,7 +270,7 @@ $("#hf").innerHTML = pic(f) + `<p>${f.title}<span>${money(f.price)}</span></p>`;
 $("#aboutText").innerHTML = SITE.about.map(p => `<p>${p}</p>`).join("");
 $("#social").innerHTML = SITE.social.map(s => `<a href="${s.url}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="${s.icon}"/></svg><span>${s.name}: ${s.handle}</span></a>`).join("");
 if(SITE.email) $("#mail").innerHTML = `Имейл: <a href="mailto:${SITE.email}">${SITE.email}</a>`;
-renderFilters(); renderGrid(); renderCart(); reveal();
+renderFilters(); renderGrid(); reveal();
 </script>
 </body>
 </html>
