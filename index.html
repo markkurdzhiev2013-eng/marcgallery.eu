@@ -99,22 +99,11 @@ dialog[open]{animation:pop .5s var(--ease)}@keyframes pop{from{opacity:0;transfo
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
 </style>
 </head>
-<body> <script>
-    window.SnipcartSettings = {
-        publicApiKey: 'Nzc5NDIyOGMtZmQyNy00ZDQyLWFjODAtOWY1ZWIyNzU3NTU4NjM5Mjg1MTU3MDQ3MzM3MDE5',
-        loadStrategy: 'on-user-interaction',
-    };
-
-    (()=>{var c,d;(d=(c=window.SnipcartSettings).version)!=null||(c.version="3.0");var s,S;(S=(s=window.SnipcartSettings).timeoutDuration)!=null||(s.timeoutDuration=2750);var l,p;(p=(l=window.SnipcartSettings).domain)!=null||(l.domain="cdn.snipcart.com");var w,u;(u=(w=window.SnipcartSettings).protocol)!=null||(w.protocol="https");var f=window.SnipcartSettings.version.includes("v3.0.0-ci")||window.SnipcartSettings.version!="3.0"&&window.SnipcartSettings.version.localeCompare("3.4.0",void 0,{numeric:!0,sensitivity:"base"})===-1,m=["focus","mouseover","touchmove","scroll","keydown"];window.LoadSnipcart=o;document.readyState==="loading"?document.addEventListener("DOMContentLoaded",r):r();function r(){window.SnipcartSettings.loadStrategy?window.SnipcartSettings.loadStrategy==="on-user-interaction"&&(m.forEach(t=>document.addEventListener(t,o)),setTimeout(o,window.SnipcartSettings.timeoutDuration)):o()}var a=!1;function o(){if(a)return;a=!0;let t=document.getElementsByTagName("head")[0],e=document.querySelector("#snipcart"),i=document.querySelector(`src[src^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][src$="snipcart.js"]`),n=document.querySelector(`link[href^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][href$="snipcart.css"]`);e||(e=document.createElement("div"),e.id="snipcart",e.setAttribute("hidden","true"),document.body.appendChild(e)),v(e),i||(i=document.createElement("script"),i.src=`${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.js`,i.async=!0,t.appendChild(i)),n||(n=document.createElement("link"),n.rel="stylesheet",n.type="text/css",n.href=`${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.css`,t.prepend(n)),m.forEach(g=>document.removeEventListener(g,o))}function v(t){!f||(t.dataset.apiKey=window.SnipcartSettings.publicApiKey,window.SnipcartSettings.addProductBehavior&&(t.dataset.configAddProductBehavior=window.SnipcartSettings.addProductBehavior),window.SnipcartSettings.modalStyle&&(t.dataset.configModalStyle=window.SnipcartSettings.modalStyle),window.SnipcartSettings.currency&&(t.dataset.currency=window.SnipcartSettings.currency),window.SnipcartSettings.templatesUrl&&(t.dataset.templatesUrl=window.SnipcartSettings.templatesUrl))}})();
-</script>
+<body>
 <nav class="nav glass">
   <a class="brand" href="#top"><b>Marc Gallery</b><span>Марк Курджиев</span></a>
   <div class="links"><a href="#galeria">Галерия</a><a href="#za-mene">За мен</a><a href="#kontakti">Контакти</a></div>
- <button class="cartbtn snipcart-checkout" aria-label="Отвори количката">
-  Количка (<span class="snipcart-items-count">0</span>)
-</button>
-
-
+  <button class="cartbtn" id="openCart" aria-label="Отвори количката">Количка<i id="count">0</i></button>
 </nav>
 
 <main id="top">
@@ -159,7 +148,13 @@ dialog[open]{animation:pop .5s var(--ease)}@keyframes pop{from{opacity:0;transfo
   <div class="copy">© 2026 Марк Курджиев · Marc Gallery · Всички права запазени</div>
 </footer>
 
-
+<aside class="drawer glass" id="drawer" aria-label="Количка" aria-hidden="true">
+  <button class="close" id="closeCart" aria-label="Затвори">×</button>
+  <h3>Твоята количка</h3>
+  <div class="items" id="items"></div>
+  <div class="total"><span>Общо</span><span id="total">0</span></div>
+  <button class="btn" id="checkout">Поръчай</button>
+</aside>
 
 <dialog id="lb" aria-label="Преглед на творба">
   <div class="lbi"><button class="lbx" id="lbClose" aria-label="Затвори">×</button><button class="nv p" id="lbPrev" aria-label="Предишна">‹</button><div id="lbArt"></div><button class="nv n" id="lbNext" aria-label="Следваща">›</button></div>
@@ -247,8 +242,32 @@ function renderGrid(){
   $("#grid").querySelectorAll("[data-a]").forEach(b => b.onclick = () => add(+b.dataset.a));
   reveal($("#grid"));
 }
-
-
+/* количка */
+const items = () => Object.keys(cart).map(id => ARTS.find(a => a.id == id)).filter(a => a && !a.sold);
+function add(id){ cart[id] = 1; save(); renderCart(); openDrawer(); }
+function renderCart(){
+  const l = items(), sum = l.reduce((s,a) => s + a.price, 0);
+  $("#count").textContent = l.length; $("#total").textContent = money(sum);
+  $("#items").innerHTML = l.length ? l.map(a => `<div class="row">${pic(a)}<div><strong>${a.title}</strong><br><small>${tech(a)} · ${money(a.price)}</small></div><button data-r="${a.id}">Премахни</button></div>`).join("") : '<p class="empty">Количката е празна. Добави творба от галерията.</p>';
+  $("#items").querySelectorAll("[data-r]").forEach(b => b.onclick = () => { delete cart[b.dataset.r]; save(); renderCart(); });
+  $("#checkout").style.opacity = l.length ? 1 : .5;
+}
+const openDrawer = () => { $("#drawer").classList.add("open"); $("#drawer").setAttribute("aria-hidden","false"); };
+const closeDrawer = () => { $("#drawer").classList.remove("open"); $("#drawer").setAttribute("aria-hidden","true"); };
+$("#openCart").onclick = openDrawer; $("#closeCart").onclick = closeDrawer;
+document.addEventListener("keydown", e => { if(e.key === "Escape") closeDrawer(); });
+/* поръчка */
+$("#checkout").onclick = () => { if(!items().length) return; $("#oForm").hidden = false; $("#oDone").hidden = true; $("#oErr").textContent = ""; $("#od").showModal(); };
+$("#oCancel").onclick = $("#oClose").onclick = () => $("#od").close();
+$("#oSend").onclick = () => {
+  const n = $("#oName").value.trim(), c = $("#oContact").value.trim(), ad = $("#oAddr").value.trim();
+  if(!n || !c || !ad){ $("#oErr").textContent = "Попълни име, контакт и адрес."; return; }
+  const l = items(), sum = l.reduce((s,a) => s + a.price, 0);
+  const t = `Поръчка от ${n}\nКонтакт: ${c}\nАдрес: ${ad}\n\n` + l.map(a => `• ${a.title}${a.size ? " (" + a.size + ")" : ""} — ${money(a.price)}`).join("\n") + `\n\nОбщо: ${money(sum)}`;
+  $("#oText").textContent = t; $("#oForm").hidden = true; $("#oDone").hidden = false;
+  if(SITE.email) location.href = `mailto:${SITE.email}?subject=${encodeURIComponent("Нова поръчка — Marc Gallery")}&body=${encodeURIComponent(t)}`;
+  cart = {}; save(); renderCart();
+};
 $("#oCopy").onclick = async () => { try { await navigator.clipboard.writeText($("#oText").textContent); $("#oCopy").textContent = "Копирано"; } catch(e){ $("#oCopy").textContent = "Копирай ръчно"; } };
 /* lightbox на цял екран */
 function openLb(id){
@@ -270,8 +289,7 @@ $("#hf").innerHTML = pic(f) + `<p>${f.title}<span>${money(f.price)}</span></p>`;
 $("#aboutText").innerHTML = SITE.about.map(p => `<p>${p}</p>`).join("");
 $("#social").innerHTML = SITE.social.map(s => `<a href="${s.url}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="${s.icon}"/></svg><span>${s.name}: ${s.handle}</span></a>`).join("");
 if(SITE.email) $("#mail").innerHTML = `Имейл: <a href="mailto:${SITE.email}">${SITE.email}</a>`;
-renderFilters(); renderGrid(); reveal();
+renderFilters(); renderGrid(); renderCart(); reveal();
 </script>
 </body>
 </html>
-
