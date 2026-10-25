@@ -72,13 +72,6 @@ footer{width:min(1280px,100% - 24px);margin:0 auto 24px;padding:46px 44px 28px}
 .fg a:not(.btn){text-decoration:none;color:var(--tx);font-weight:500}.fg a:not(.btn):hover{color:var(--pk)}.fg li{list-style:none;margin:0 0 8px}.fg ul{padding:0;margin:0}.fsoc{margin-top:30px}.cert{margin-top:12px;padding:12px 16px;border-radius:18px;background:var(--glass);border:1px solid var(--bd);color:var(--tx)!important;font-weight:600}
 .copy{margin-top:34px;padding-top:20px;border-top:1px solid var(--bd);color:var(--mut);font-size:.92rem;text-align:center}
 .rv{opacity:0;transform:translateY(44px) scale(.98);transition:opacity 1s var(--ease),transform 1s var(--ease)}.rv.in{opacity:1;transform:none}.hf.rv.in{transform:rotate(2deg)}
-.drawer{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));right:12px;bottom:12px;width:min(440px,100% - 24px);z-index:50;padding:26px;display:flex;flex-direction:column;transform:translateX(120%);transition:transform .6s var(--ease)}
-.drawer.open{transform:none}.drawer h3{font-size:1.7rem;letter-spacing:-.03em;margin:0 0 14px}
-.close{align-self:flex-end;border:0;background:none;font-size:2rem;line-height:1;cursor:pointer}
-.items{flex:1;overflow:auto;display:flex;flex-direction:column;gap:14px}
-.row{display:grid;grid-template-columns:64px 1fr auto;gap:14px;align-items:center;padding-bottom:12px;border-bottom:1px solid var(--bd)}
-.row .pic{width:64px;aspect-ratio:1;border-radius:14px}.row small{color:var(--mut)}.row button{border:0;background:none;color:var(--pk);font-weight:600;cursor:pointer}
-.total{display:flex;justify-content:space-between;font-size:1.5rem;font-weight:700;padding:16px 0}.empty{color:var(--mut)}
 dialog{border:0;padding:0;background:transparent;color:var(--tx);max-width:none}
 dialog::backdrop{background:rgba(10,10,25,.55);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
 dialog[open]{animation:pop .5s var(--ease)}@keyframes pop{from{opacity:0;transform:scale(.96)}}
@@ -91,19 +84,26 @@ dialog[open]{animation:pop .5s var(--ease)}@keyframes pop{from{opacity:0;transfo
 .buy{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px}
 .lbx,.nv{position:absolute;z-index:3;border:0;border-radius:99px;background:rgba(255,255,255,.16);color:#fff;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);cursor:pointer;width:48px;height:48px;font-size:1.7rem;line-height:1;transition:background .3s,transform .3s}
 .lbx:hover,.nv:hover{background:rgba(255,255,255,.3);transform:scale(1.08)}.lbx{top:calc(14px + env(safe-area-inset-top,0px));right:14px}.nv{top:50%;margin-top:-24px}.nv.p{left:18px}.nv.n{right:18px}
-#od{width:min(480px,94%)}.odb{padding:34px}.odb h3{font-size:1.8rem;letter-spacing:-.03em;margin:0 0 10px}.odb label{display:block;font-weight:600;margin:14px 0 6px}
-.odb input,.odb textarea{width:100%;padding:13px 16px;border-radius:16px;border:1px solid var(--bd);background:var(--glass);color:var(--tx);font:inherit}
-.odb pre{white-space:pre-wrap;background:var(--glass);padding:16px;border-radius:16px;font:inherit;font-size:.95rem}
 @media(max-width:900px){.hero,.about,.fg{grid-template-columns:1fr}.hero{padding-top:130px}.hf{max-width:420px}.links{display:none}.about{padding:30px 24px}.portrait{max-width:300px}footer{padding:30px 24px 20px}
 #lb[open]{grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) auto}.lbi{height:100%;padding:12px}.lbt{border-left:0;border-top:1px solid rgba(255,255,255,.12);padding:20px 22px calc(22px + env(safe-area-inset-bottom,0px));max-height:42dvh}.lbt h3{font-size:1.5rem}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
+
+<!-- Snipcart: официален код с публичния ключ -->
+<script>
+    window.SnipcartSettings = {
+        publicApiKey: 'Nzc5NDIyOGMtZmQyNy00ZDQyLWFjODAtOWY1ZWIyNzU3NTU4NjM5Mjg1MTU3MDQ3MzM3MDE5',
+        loadStrategy: 'on-user-interaction',
+    };
+    (()=>{var c,d;(d=(c=window.SnipcartSettings).version)!=null||(c.version="3.0");var s,S;(S=(s=window.SnipcartSettings).timeoutDuration)!=null||(s.timeoutDuration=2750);var l,p;(p=(l=window.SnipcartSettings).domain)!=null||(l.domain="cdn.snipcart.com");var w,u;(u=(w=window.SnipcartSettings).protocol)!=null||(w.protocol="https");var f=window.SnipcartSettings.version.includes("v3.0.0-ci")||window.SnipcartSettings.version!="3.0"&&window.SnipcartSettings.version.localeCompare("3.4.0",void 0,{numeric:!0,sensitivity:"base"})===-1,m=["focus","mouseover","touchmove","scroll","keydown"];window.LoadSnipcart=o;document.readyState==="loading"?document.addEventListener("DOMContentLoaded",r):r();function r(){window.SnipcartSettings.loadStrategy?window.SnipcartSettings.loadStrategy==="on-user-interaction"&&(m.forEach(t=>document.addEventListener(t,o)),setTimeout(o,window.SnipcartSettings.timeoutDuration)):o()}var a=!1;function o(){if(a)return;a=!0;let t=document.getElementsByTagName("head")[0],e=document.querySelector("#snipcart"),i=document.querySelector(`src[src^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][src$="snipcart.js"]`),n=document.querySelector(`link[href^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][href$="snipcart.css"]`);e||(e=document.createElement("div"),e.id="snipcart",e.setAttribute("hidden","true"),document.body.appendChild(e)),v(e),i||(i=document.createElement("script"),i.src=`${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.js`,i.async=!0,t.appendChild(i)),n||(n=document.createElement("link"),n.rel="stylesheet",n.type="text/css",n.href=`${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.css`,t.prepend(n)),m.forEach(g=>document.removeEventListener(g,o))}function v(t){!f||(t.dataset.apiKey=window.SnipcartSettings.publicApiKey,window.SnipcartSettings.addProductBehavior&&(t.dataset.configAddProductBehavior=window.SnipcartSettings.addProductBehavior),window.SnipcartSettings.modalStyle&&(t.dataset.configModalStyle=window.SnipcartSettings.modalStyle),window.SnipcartSettings.currency&&(t.dataset.currency=window.SnipcartSettings.currency),window.SnipcartSettings.templatesUrl&&(t.dataset.templatesUrl=window.SnipcartSettings.templatesUrl))}})();
+</script>
+
 <nav class="nav glass">
   <a class="brand" href="#top"><b>Marc Gallery</b><span>Марк Курджиев</span></a>
   <div class="links"><a href="#galeria">Галерия</a><a href="#za-mene">За мен</a><a href="#kontakti">Контакти</a></div>
-  <button class="cartbtn" id="openCart" aria-label="Отвори количката">Количка<i id="count">0</i></button>
+  <button class="cartbtn snipcart-checkout" aria-label="Отвори количката">Количка<i class="snipcart-items-count">0</i></button>
 </nav>
 
 <main id="top">
@@ -140,42 +140,24 @@ dialog[open]{animation:pop .5s var(--ease)}@keyframes pop{from{opacity:0;transfo
 <footer class="glass rv" id="kontakti">
   <div class="fg">
     <div><b>Marc Gallery</b><p>Авторско изкуство и акварели от Марк Курджиев.</p><p>Mark Art · Mark Watercolor</p></div>
-    <div><h4>Картини</h4><ul><li><a href="#galeria">Всички картини</a></li><li><a href="#galeria">Оригинални творби</a></li><li><a href="#top" onclick="document.getElementById('openCart').click();return false">Моята количка</a></li></ul></div>
+    <div><h4>Картини</h4><ul><li><a href="#galeria">Всички картини</a></li><li><a href="#galeria">Оригинални творби</a></li><li><a href="#top" class="snipcart-checkout">Моята количка</a></li></ul></div>
     <div><h4>За мен</h4><p>Млад акварелист и моден илюстратор. 2 успешни изложби, мои картини има в Испания и Франция.</p><p><a href="#za-mene">Прочети повече</a></p></div>
-    <div><h4>Информация</h4><p>Имейл и контакт: <a href="mailto:mark.kurdzhiev2013@gmail.com">mark.kurdzhiev2013@gmail.com</a></p><p>DM: пиши ми в Instagram <a href="https://www.instagram.com/m.kurdzhiewww/" target="_blank" rel="noopener">@m.kurdzhiewww</a></p><p>Сайт: <a href="https://marcgallery.eu">marcgallery.eu</a></p><p id="mail" hidden></p><p>Поръчки и картини по поръчка — пиши ми в Instagram или Facebook.</p><p class="cert">Всяка картина върви със сертификат.</p></div>
+    <div><h4>Информация</h4><p>Имейл и контакт: <a href="mailto:mark.kurdzhiev2013@gmail.com">mark.kurdzhiev2013@gmail.com</a></p><p>DM: пиши ми в Instagram <a href="https://www.instagram.com/m.kurdzhiewww/" target="_blank" rel="noopener">@m.kurdzhiewww</a></p><p>Сайт: <a href="https://marcgallery.eu">marcgallery.eu</a></p><p>Поръчки и картини по поръчка — пиши ми в Instagram или Facebook.</p><p class="cert">Всяка картина върви със сертификат.</p></div>
   </div>
   <div class="fsoc"><h4 style="margin:0 0 12px;font-size:1rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)">Социални мрежи</h4><div class="social" id="social"></div></div>
   <div class="copy">© 2026 Марк Курджиев · Marc Gallery · Всички права запазени</div>
 </footer>
-
-<aside class="drawer glass" id="drawer" aria-label="Количка" aria-hidden="true">
-  <button class="close" id="closeCart" aria-label="Затвори">×</button>
-  <h3>Твоята количка</h3>
-  <div class="items" id="items"></div>
-  <div class="total"><span>Общо</span><span id="total">0</span></div>
-  <button class="btn" id="checkout">Поръчай</button>
-</aside>
 
 <dialog id="lb" aria-label="Преглед на творба">
   <div class="lbi"><button class="lbx" id="lbClose" aria-label="Затвори">×</button><button class="nv p" id="lbPrev" aria-label="Предишна">‹</button><div id="lbArt"></div><button class="nv n" id="lbNext" aria-label="Следваща">›</button></div>
   <div class="lbt" id="lbInfo"></div>
 </dialog>
 
-<dialog id="od"><div class="odb glass">
-  <div id="oForm"><h3>Завърши поръчката</h3>
-    <label for="oName">Име</label><input id="oName" autocomplete="name">
-    <label for="oContact">Телефон или имейл</label><input id="oContact" autocomplete="tel">
-    <label for="oAddr">Адрес за доставка</label><textarea id="oAddr" rows="3" autocomplete="street-address"></textarea>
-    <p id="oErr" style="color:var(--pk);margin:10px 0 0"></p>
-    <p style="margin:16px 0 0"><button class="btn" id="oSend">Изпрати поръчката</button> <button class="btn ghost" id="oCancel">Затвори</button></p></div>
-  <div id="oDone" hidden><h3>Благодаря!</h3><p>Копирай поръчката и я изпрати в Instagram или по имейл, за да потвърдя наличността и доставката.</p><pre id="oText"></pre><button class="btn" id="oCopy">Копирай</button> <button class="btn ghost" id="oClose">Готово</button></div>
-</div></dialog>
-
 <script>
 /* ===================== НАСТРОЙКИ — редактирай само тук ===================== */
 const SITE = {
   currency: "€",
-  email: "mark.kurdzhiev2013@gmail.com",   // имейл за контакт — показва се във футъра и получава поръчките
+  productsUrl: "https://marcgallery.eu/products.json",   // файлът с цените, който Snipcart проверява
   about: [
     "Здравей, аз съм Марк — млад акварелист и моден илюстратор.",
     "Рисувам пейзажи, в които светлината сякаш още не е изсъхнала, и модни скици, в които цветът е част от характера на дрехата.",
@@ -189,7 +171,8 @@ const SITE = {
   ]
 };
 /* ===================== ТВОРБИ — за нова картина добави ред най-горе =====================
-   img: снимката на творбата — линк, път до файл (напр. "images/18.jpg") или вградена снимка. Без снимка се показва акварелна илюстрация.
+   ВАЖНО: всяка нова (непродадена) картина се добавя и във файла products.json — със същото id и същата цена.
+   img: път до снимката (напр. "images/18.jpg") или линк. Без снимка се показва акварелна илюстрация.
    tech: техника (по подразбиране "Акварел") · size и desc са по желание · sold:true = продадена
    type: landscape | nature | stilllife | fantasy | fashion                                    */
 const CATEGORIES = {all:"Всички", landscape:"Пейзажи", nature:"Цветя и природа", stilllife:"Натюрморти", fantasy:"Фантазия", fashion:"Модни скици"};
@@ -217,13 +200,15 @@ const $ = s => document.querySelector(s);
 const money = n => n.toLocaleString("bg-BG") + " " + SITE.currency;
 const tech = a => a.tech || "Акварел";
 const DESC = "Оригинална авторска творба на Марк Курджиев. Изпраща се опакована и защитена.";
-let cart = {}, filter = "all", cur = null;
-try { cart = JSON.parse(localStorage.getItem("mg-cart") || "{}"); } catch(e){}
-const save = () => { try { localStorage.setItem("mg-cart", JSON.stringify(cart)); } catch(e){} };
+const att = s => String(s).replace(/&/g,"&amp;").replace(/"/g,"&quot;");
+const abs = u => { try { return new URL(u, location.href).href; } catch(e){ return u; } };
+/* Snipcart атрибути за бутона „Добави в количката“ (всяка творба е единствена — максимум 1 бр.) */
+const sc = a => `data-item-id="${a.id}" data-item-name="${att(a.title)}" data-item-price="${a.price}" data-item-url="${SITE.productsUrl}" data-item-image="${a.img ? abs(a.img) : ""}" data-item-description="${att(tech(a) + (a.size ? ", " + a.size : ""))}" data-item-max-quantity="1"`;
+let filter = "all", cur = null;
 
 function pic(a){
   const h = a.id * 47 % 360;
-  return `<div class="pic"><svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><filter id="f${a.id}" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence baseFrequency=".012" numOctaves="3" seed="${a.id}"/><feDisplacementMap in="SourceGraphic" scale="60"/><feGaussianBlur stdDeviation="6"/></filter></defs><rect width="400" height="500" fill="hsl(${h},70%,88%)"/><g filter="url(#f${a.id})"><circle cx="120" cy="140" r="130" fill="hsl(${h},75%,70%)"/><circle cx="290" cy="260" r="150" fill="hsl(${(h+50)%360},75%,65%)"/><circle cx="170" cy="400" r="130" fill="hsl(${(h+200)%360},70%,60%)"/></g></svg>${a.img ? `<img src="${a.img}" alt="${a.title}" loading="lazy" onerror="this.remove()">` : ""}</div>`;
+  return `<div class="pic"><svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><filter id="f${a.id}" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence baseFrequency=".012" numOctaves="3" seed="${a.id}"/><feDisplacementMap in="SourceGraphic" scale="60"/><feGaussianBlur stdDeviation="6"/></filter></defs><rect width="400" height="500" fill="hsl(${h},70%,88%)"/><g filter="url(#f${a.id})"><circle cx="120" cy="140" r="130" fill="hsl(${h},75%,70%)"/><circle cx="290" cy="260" r="150" fill="hsl(${(h+50)%360},75%,65%)"/><circle cx="170" cy="400" r="130" fill="hsl(${(h+200)%360},70%,60%)"/></g></svg>${a.img ? `<img src="${a.img}" alt="${att(a.title)}" loading="lazy" onerror="this.remove()">` : ""}</div>`;
 }
 const vis = () => ARTS.filter(a => filter === "all" || a.type === filter);
 function reveal(root){
@@ -236,47 +221,19 @@ function renderFilters(){
 }
 function renderGrid(){
   $("#grid").innerHTML = vis().map(a => `<article class="card glass rv${a.sold ? " is-sold" : ""}">
-    <button class="open" data-o="${a.id}" aria-label="Увеличи: ${a.title}">${pic(a)}</button>
-    <div class="cap"><div><h3>${a.title}</h3><small>${tech(a)}${a.size ? " · " + a.size : ""}</small>${a.sold ? '<span class="sold">Продадена</span>' : `<button class="mini" data-a="${a.id}">Добави в количката</button>`}</div><span class="price">${money(a.price)}</span></div></article>`).join("");
+    <button class="open" data-o="${a.id}" aria-label="Увеличи: ${att(a.title)}">${pic(a)}</button>
+    <div class="cap"><div><h3>${a.title}</h3><small>${tech(a)}${a.size ? " · " + a.size : ""}</small>${a.sold ? '<span class="sold">Продадена</span>' : `<button class="mini snipcart-add-item" ${sc(a)}>Добави в количката</button>`}</div><span class="price">${money(a.price)}</span></div></article>`).join("");
   $("#grid").querySelectorAll("[data-o]").forEach(b => b.onclick = () => openLb(+b.dataset.o));
-  $("#grid").querySelectorAll("[data-a]").forEach(b => b.onclick = () => add(+b.dataset.a));
   reveal($("#grid"));
 }
-/* количка */
-const items = () => Object.keys(cart).map(id => ARTS.find(a => a.id == id)).filter(a => a && !a.sold);
-function add(id){ cart[id] = 1; save(); renderCart(); openDrawer(); }
-function renderCart(){
-  const l = items(), sum = l.reduce((s,a) => s + a.price, 0);
-  $("#count").textContent = l.length; $("#total").textContent = money(sum);
-  $("#items").innerHTML = l.length ? l.map(a => `<div class="row">${pic(a)}<div><strong>${a.title}</strong><br><small>${tech(a)} · ${money(a.price)}</small></div><button data-r="${a.id}">Премахни</button></div>`).join("") : '<p class="empty">Количката е празна. Добави творба от галерията.</p>';
-  $("#items").querySelectorAll("[data-r]").forEach(b => b.onclick = () => { delete cart[b.dataset.r]; save(); renderCart(); });
-  $("#checkout").style.opacity = l.length ? 1 : .5;
-}
-const openDrawer = () => { $("#drawer").classList.add("open"); $("#drawer").setAttribute("aria-hidden","false"); };
-const closeDrawer = () => { $("#drawer").classList.remove("open"); $("#drawer").setAttribute("aria-hidden","true"); };
-$("#openCart").onclick = openDrawer; $("#closeCart").onclick = closeDrawer;
-document.addEventListener("keydown", e => { if(e.key === "Escape") closeDrawer(); });
-/* поръчка */
-$("#checkout").onclick = () => { if(!items().length) return; $("#oForm").hidden = false; $("#oDone").hidden = true; $("#oErr").textContent = ""; $("#od").showModal(); };
-$("#oCancel").onclick = $("#oClose").onclick = () => $("#od").close();
-$("#oSend").onclick = () => {
-  const n = $("#oName").value.trim(), c = $("#oContact").value.trim(), ad = $("#oAddr").value.trim();
-  if(!n || !c || !ad){ $("#oErr").textContent = "Попълни име, контакт и адрес."; return; }
-  const l = items(), sum = l.reduce((s,a) => s + a.price, 0);
-  const t = `Поръчка от ${n}\nКонтакт: ${c}\nАдрес: ${ad}\n\n` + l.map(a => `• ${a.title}${a.size ? " (" + a.size + ")" : ""} — ${money(a.price)}`).join("\n") + `\n\nОбщо: ${money(sum)}`;
-  $("#oText").textContent = t; $("#oForm").hidden = true; $("#oDone").hidden = false;
-  if(SITE.email) location.href = `mailto:${SITE.email}?subject=${encodeURIComponent("Нова поръчка — Marc Gallery")}&body=${encodeURIComponent(t)}`;
-  cart = {}; save(); renderCart();
-};
-$("#oCopy").onclick = async () => { try { await navigator.clipboard.writeText($("#oText").textContent); $("#oCopy").textContent = "Копирано"; } catch(e){ $("#oCopy").textContent = "Копирай ръчно"; } };
 /* lightbox на цял екран */
 function openLb(id){
   const a = ARTS.find(x => x.id === id); if(!a) return; cur = id;
   $("#lbArt").innerHTML = pic(a);
   $("#lbInfo").innerHTML = `<span class="meta">${CATEGORIES[a.type] || ""}</span><h3>${a.title}</h3><p><strong>Техника:</strong> ${tech(a)}</p>`
     + (a.size ? `<p><strong>Размери:</strong> ${a.size}</p>` : "") + `<p>${a.desc || DESC}</p>`
-    + `<div class="buy"><span class="price"${a.sold ? ' style="text-decoration:line-through;opacity:.55"' : ""}>${money(a.price)}</span>${a.sold ? '<span class="sold">Продадена</span>' : '<button class="btn" id="lbAdd">Добави в количката</button>'}</div>`;
-  const b = $("#lbAdd"); if(b) b.onclick = () => { $("#lb").close(); add(a.id); };
+    + `<div class="buy"><span class="price"${a.sold ? ' style="text-decoration:line-through;opacity:.55"' : ""}>${money(a.price)}</span>${a.sold ? '<span class="sold">Продадена</span>' : `<button class="btn snipcart-add-item" id="lbAdd" ${sc(a)}>Добави в количката</button>`}</div>`;
+  const b = $("#lbAdd"); if(b) b.addEventListener("click", () => $("#lb").close());
   if(!$("#lb").open) $("#lb").showModal();
 }
 function step(d){ const l = vis(), i = l.findIndex(a => a.id === cur); if(i > -1) openLb(l[(i + d + l.length) % l.length].id); }
@@ -288,8 +245,7 @@ const f = ARTS.find(a => !a.sold) || ARTS[0];
 $("#hf").innerHTML = pic(f) + `<p>${f.title}<span>${money(f.price)}</span></p>`;
 $("#aboutText").innerHTML = SITE.about.map(p => `<p>${p}</p>`).join("");
 $("#social").innerHTML = SITE.social.map(s => `<a href="${s.url}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="${s.icon}"/></svg><span>${s.name}: ${s.handle}</span></a>`).join("");
-if(SITE.email) $("#mail").innerHTML = `Имейл: <a href="mailto:${SITE.email}">${SITE.email}</a>`;
-renderFilters(); renderGrid(); renderCart(); reveal();
+renderFilters(); renderGrid(); reveal();
 </script>
 </body>
 </html>
