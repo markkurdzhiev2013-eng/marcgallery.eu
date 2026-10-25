@@ -247,32 +247,8 @@ function renderGrid(){
   $("#grid").querySelectorAll("[data-a]").forEach(b => b.onclick = () => add(+b.dataset.a));
   reveal($("#grid"));
 }
-/* количка */
-const items = () => Object.keys(cart).map(id => ARTS.find(a => a.id == id)).filter(a => a && !a.sold);
-function add(id){ cart[id] = 1; save(); renderCart(); openDrawer(); }
-function renderCart(){
-  const l = items(), sum = l.reduce((s,a) => s + a.price, 0);
-  $("#count").textContent = l.length; $("#total").textContent = money(sum);
-  $("#items").innerHTML = l.length ? l.map(a => `<div class="row">${pic(a)}<div><strong>${a.title}</strong><br><small>${tech(a)} · ${money(a.price)}</small></div><button data-r="${a.id}">Премахни</button></div>`).join("") : '<p class="empty">Количката е празна. Добави творба от галерията.</p>';
-  $("#items").querySelectorAll("[data-r]").forEach(b => b.onclick = () => { delete cart[b.dataset.r]; save(); renderCart(); });
-  $("#checkout").style.opacity = l.length ? 1 : .5;
-}
-const openDrawer = () => { $("#drawer").classList.add("open"); $("#drawer").setAttribute("aria-hidden","false"); };
-const closeDrawer = () => { $("#drawer").classList.remove("open"); $("#drawer").setAttribute("aria-hidden","true"); };
-$("#openCart").onclick = openDrawer; $("#closeCart").onclick = closeDrawer;
-document.addEventListener("keydown", e => { if(e.key === "Escape") closeDrawer(); });
-/* поръчка */
-$("#checkout").onclick = () => { if(!items().length) return; $("#oForm").hidden = false; $("#oDone").hidden = true; $("#oErr").textContent = ""; $("#od").showModal(); };
-$("#oCancel").onclick = $("#oClose").onclick = () => $("#od").close();
-$("#oSend").onclick = () => {
-  const n = $("#oName").value.trim(), c = $("#oContact").value.trim(), ad = $("#oAddr").value.trim();
-  if(!n || !c || !ad){ $("#oErr").textContent = "Попълни име, контакт и адрес."; return; }
-  const l = items(), sum = l.reduce((s,a) => s + a.price, 0);
-  const t = `Поръчка от ${n}\nКонтакт: ${c}\nАдрес: ${ad}\n\n` + l.map(a => `• ${a.title}${a.size ? " (" + a.size + ")" : ""} — ${money(a.price)}`).join("\n") + `\n\nОбщо: ${money(sum)}`;
-  $("#oText").textContent = t; $("#oForm").hidden = true; $("#oDone").hidden = false;
-  if(SITE.email) location.href = `mailto:${SITE.email}?subject=${encodeURIComponent("Нова поръчка — Marc Gallery")}&body=${encodeURIComponent(t)}`;
-  cart = {}; save(); renderCart();
-};
+
+
 $("#oCopy").onclick = async () => { try { await navigator.clipboard.writeText($("#oText").textContent); $("#oCopy").textContent = "Копирано"; } catch(e){ $("#oCopy").textContent = "Копирай ръчно"; } };
 /* lightbox на цял екран */
 function openLb(id){
