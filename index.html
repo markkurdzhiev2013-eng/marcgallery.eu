@@ -9,7 +9,7 @@
 <meta property="og:description" content="Fine art акварели. Барселона · Велико Търново.">
 <meta property="og:url" content="https://marcgallery.eu/">
 <link rel="canonical" href="https://marcgallery.eu/">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎨</text></svg>">
+<link rel="icon" type="image/png" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500&family=Marck+Script&display=swap" rel="stylesheet">
 <style>
@@ -171,6 +171,45 @@ dialog[open]{animation:pop .55s var(--e)}@keyframes pop{from{opacity:0;transform
 .tl::before{left:35px}.ti{grid-template-columns:70px 1fr;gap:0 10px;align-items:start}.med{width:62px;height:78px;grid-column:1;grid-row:1/3}.med svg{width:36px;height:36px}.ti .d,.ti.r .d{grid-column:2;grid-row:1;text-align:left;padding:0 0 8px}.ti .cd,.ti.r .cd{grid-column:2;grid-row:2}.btn.gh{margin:12px 0 0}
 #lb[open]{grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) auto}.lbi{height:100%;padding:12px}.lbi img{max-height:calc(100% - 4px);padding:10px;border-width:9px}.lbt{border-left:0;border-top:2px solid rgba(224,194,119,.35);padding:24px 22px calc(24px + env(safe-area-inset-bottom,0px));max-height:46dvh}.lbt h3{font-size:2.2rem}.odb{padding:30px 22px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+/* ===== нови блокове: пробна за стена, поръчка по избор, сертификат, VIP ===== */
+.ov nav a{font-size:clamp(1.9rem,4.6vw,3.5rem)}.ov.open nav a:nth-child(n+6){transition-delay:.6s}
+.opt{position:relative;cursor:pointer}.opt input{position:absolute;opacity:0}
+.opt span{display:block;padding:12px 18px;background:var(--paper);box-shadow:inset 0 0 0 1px var(--gold);transition:all .3s var(--e);font-size:.95rem}
+.opt:hover span{background:#fde7c3}.opt input:checked+span{background:var(--ol);color:#fff;box-shadow:inset 0 0 0 1px var(--ol),0 10px 18px -8px var(--ol)}.opt input:focus-visible+span{outline:2px solid var(--coral)}
+.chp{display:flex;flex-wrap:wrap;gap:10px}
+.wall{background:radial-gradient(45vw 35vw at 0 30%,rgba(159,208,238,.5),transparent 62%),radial-gradient(40vw 35vw at 100% 100%,rgba(240,180,41,.3),transparent 62%),var(--cream)}
+.wg{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:5vw;align-items:center}
+.room{position:relative;container-type:inline-size;overflow:hidden;background:#ecdfc4;box-shadow:0 0 0 8px var(--paper),0 0 0 9px var(--gold),0 36px 70px -30px rgba(43,57,25,.6)}.rm{display:block;width:100%;height:auto}
+.wp{position:absolute;left:50%;top:25.9%;translate:-50% -50%;padding:.67cqw;background:linear-gradient(135deg,#8a6238,#3a2712 50%,#7a5530);box-shadow:0 1.4cqw 2.6cqw -.8cqw rgba(0,0,0,.5)}
+.wm{padding:1cqw;background:#fffdf6;box-shadow:inset 0 0 .6cqw rgba(0,0,0,.28)}
+.wm img{display:block;max-width:none;object-fit:cover;width:calc(var(--w,21)*.3333cqw);height:calc(var(--h,30)*.3333cqw);transition:width .8s var(--e),height .8s var(--e)}
+.wc .k{margin:0 0 10px}.sz{display:flex;gap:10px;flex-wrap:wrap}
+.bt2{border:0;padding:12px 18px;background:var(--paper);box-shadow:inset 0 0 0 1px var(--gold);cursor:pointer;transition:all .3s var(--e)}.bt2:hover{background:#fde7c3}.bt2[aria-pressed=true]{background:var(--ol);color:#fff}
+.wl{margin:14px 0 0;color:var(--mut)}.wl b{color:var(--ol2);font:500 1.5rem var(--serif)}
+.pk{display:grid;grid-template-columns:repeat(auto-fill,minmax(58px,1fr));gap:8px;max-height:236px;overflow:auto;padding:5px}
+.pk button{border:0;padding:3px;background:var(--m);aspect-ratio:4/5;cursor:pointer;transition:transform .3s var(--e)}.pk button:hover{transform:translateY(-3px)}.pk button[aria-pressed=true]{outline:3px solid var(--ol2);outline-offset:2px}.pk img{width:100%;height:100%;object-fit:cover;background:#fff}
+.small{font-size:.86rem}
+.cmb{background:radial-gradient(40vw 35vw at 100% 25%,rgba(232,134,155,.38),transparent 62%),radial-gradient(40vw 30vw at 0 100%,rgba(159,208,238,.42),transparent 62%),var(--cream)}
+.cg{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(300px,1fr);gap:5vw;align-items:start}
+.cg fieldset{border:0;padding:0;margin:0 0 30px}.cg legend{font:400 2rem var(--scr);color:var(--coral);margin-bottom:12px;padding:0}
+.cres{position:sticky;top:110px;padding:42px 34px;background:var(--paper);box-shadow:0 30px 50px -24px rgba(43,57,25,.5),inset 0 0 0 6px var(--paper),inset 0 0 0 7px var(--gold),inset 0 0 0 11px var(--paper),inset 0 0 0 12px rgba(176,138,62,.5)}
+.cres .k{margin:0 0 6px}.cp{font:600 clamp(3.2rem,6vw,4.8rem)/1 var(--serif);color:var(--coral)}.cres p{margin:6px 0}
+.lb2{display:block;font:500 .66rem var(--sans);letter-spacing:.22em;text-transform:uppercase;margin:16px 0 6px}
+.fld{width:100%;padding:13px 16px;border:1px solid rgba(176,138,62,.5);background:#fff;color:var(--ink);font:inherit}
+.err{color:#a3401f;margin:10px 0 0;min-height:1.2em}.fine{font-size:.82rem;color:var(--mut)}
+.cb2{background:radial-gradient(40vw 35vw at 0 30%,rgba(240,180,41,.3),transparent 62%),var(--cream)}
+.cg2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:6vw;align-items:center}
+.cl{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:14px}.cl li{display:flex;gap:16px;align-items:center;color:var(--mut)}.cl li::before{content:"✦";flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--c,var(--coral));color:#fff;box-shadow:0 0 0 3px var(--cream),0 0 0 4px var(--gold)}.cl b{color:var(--ol2);font:500 1.5rem var(--serif);display:block}
+.cardc{position:relative;padding:46px 42px 40px;background:var(--paper);text-align:center;transform:rotate(-1.4deg);transition:transform .7s var(--e);box-shadow:0 34px 60px -26px rgba(43,57,25,.55),inset 0 0 0 6px var(--paper),inset 0 0 0 7px var(--gold),inset 0 0 0 11px var(--paper),inset 0 0 0 12px rgba(176,138,62,.5)}.cardc:hover{transform:rotate(0) scale(1.02)}
+.cardc small{display:block;font:500 .62rem var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}.cardc h3{font:500 2.7rem/1.05 var(--serif);color:var(--ol2);margin:8px 0 2px}.cardc .bg2{font:400 1.6rem var(--scr);color:var(--coral);margin-bottom:14px}
+.ln{display:flex;justify-content:space-between;gap:14px;border-bottom:1px dashed var(--gold);padding:8px 0;font-size:.95rem;text-align:left}.ln span{color:var(--mut)}.ln b{font-weight:500}
+.sgn{display:flex;justify-content:space-between;align-items:flex-end;margin-top:24px}.sg{font:400 2.6rem/1 var(--scr);color:var(--ol2);border-bottom:1px solid var(--ink);padding:0 22px 2px;min-width:150px}.stamp{width:104px;height:104px;transform:rotate(-12deg);filter:drop-shadow(0 6px 8px rgba(120,30,10,.35))}
+.vip{background:radial-gradient(45vw 35vw at 90% 0,rgba(240,180,41,.32),transparent 62%),linear-gradient(160deg,#5f284a,#9b4468 55%,#6a2f4f);color:#fff7e6}
+.vb{position:relative;max-width:900px;margin:0 auto;padding:58px 6vw;background:var(--paper);color:var(--ink);text-align:center;box-shadow:0 34px 60px -24px rgba(0,0,0,.6),inset 0 0 0 6px var(--paper),inset 0 0 0 7px var(--gold),inset 0 0 0 11px var(--paper),inset 0 0 0 12px rgba(176,138,62,.5)}
+.vb h2{font-size:clamp(2.6rem,6vw,4.4rem)}.vb .sc{color:var(--plum)}.vb p{color:var(--mut)}
+.vr{display:flex;gap:10px;max-width:600px;margin:24px auto 0}.vr .fld{flex:1}.vo{display:flex;gap:10px;align-items:flex-start;justify-content:center;margin:16px auto 0;max-width:560px;font-size:.84rem;color:var(--mut);text-align:left}.vo input{margin-top:4px;accent-color:var(--ol)}
+.lk2{margin-top:10px;border:0;background:none;color:var(--saf);font:500 .68rem var(--sans);letter-spacing:.22em;text-transform:uppercase;cursor:pointer;text-align:left;padding:0;border-bottom:1px solid rgba(240,180,41,.5);align-self:flex-start}.lk2:hover{color:#fff}
+@media(max-width:900px){.wg,.cg,.cg2{grid-template-columns:1fr}.cres{position:relative;top:0}.vr{flex-direction:column}.cardc{padding:34px 22px}}
 </style>
 </head>
 <body>
@@ -189,7 +228,7 @@ dialog[open]{animation:pop .55s var(--e)}@keyframes pop{from{opacity:0;transform
 <div class="ov" id="ov" aria-hidden="true">
   <span class="dc d-bl" data-d="c" data-s="9" data-sp="0"></span><span class="dc d-tr" data-d="c" data-s="4" data-sp="0"></span>
   <div class="ovh"><span class="logo">Marc Gallery</span><button class="ovx" id="ovx" aria-label="Затвори менюто">×</button></div>
-  <nav aria-label="Основно меню"><a href="#galeria" data-n="01">Галерия</a><a href="#izlozhbi" data-n="02">Изложби</a><a href="#nagradi" data-n="03">Награди</a><a href="#za-mene" data-n="04">За мен</a><a href="#kontakt" data-n="05">Контакт</a></nav>
+  <nav aria-label="Основно меню"><a href="#galeria" data-n="01">Галерия</a><a href="#stena" data-n="02">Пробна за стена</a><a href="#poruchka" data-n="03">Поръчка по избор</a><a href="#sertifikat" data-n="04">Сертификат</a><a href="#vip" data-n="05">VIP списък</a><a href="#izlozhbi" data-n="06">Изложби</a><a href="#nagradi" data-n="07">Награди</a><a href="#za-mene" data-n="08">За мен</a><a href="#kontakt" data-n="09">Контакт</a></nav>
   <div class="ovf"><span>Велико Търново · Barcelona</span><a href="mailto:mark.kurdzhiev2013@gmail.com">mark.kurdzhiev2013@gmail.com</a><a href="https://www.instagram.com/mcarte_/" target="_blank" rel="noopener">@mcarte_</a></div>
 </div>
 
@@ -243,6 +282,102 @@ dialog[open]{animation:pop .55s var(--e)}@keyframes pop{from{opacity:0;transform
       <div class="grid" id="grid"></div>
       <p class="note rv cf">Колекцията расте — до 40 оригинални творби. Всяка се изпраща опакована и защитена, със сертификат за автентичност.</p>
     </div>
+  </section>
+
+  <section class="band wall" id="stena">
+    <span class="dc d-tl" data-d="c" data-s="15"></span>
+    <div class="sec">
+      <div class="sh">
+        <p class="sc rv">Визуализация</p>
+        <h2 class="rv">Пробна за <em>стена</em></h2>
+        <div class="dv rv"><span class="m" data-d="s" data-s="8"></span><b>◆</b><span class="m mir" data-d="s" data-s="9"></span></div>
+        <p class="sub rv">Виж как стои картина в рамка над диван в модерна стая. Смени размера и избери творба от галерията.</p>
+      </div>
+      <div class="wg">
+        <div class="room rv" id="room"><svg class="rm" viewBox="0 0 1000 800" aria-hidden="true"><defs><linearGradient id="wl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7efdd"/><stop offset="1" stop-color="#ecdfc4"/></linearGradient><linearGradient id="fl2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cba777"/><stop offset="1" stop-color="#a98354"/></linearGradient><radialGradient id="gl" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffe9a8" stop-opacity=".8"/><stop offset="1" stop-color="#ffe9a8" stop-opacity="0"/></radialGradient></defs>
+<rect width="1000" height="690" fill="url(#wl)"/><rect x="70" y="50" width="860" height="570" rx="4" fill="none" stroke="rgba(176,138,62,.3)" stroke-width="2"/>
+<rect y="690" width="1000" height="110" fill="url(#fl2)"/><path d="M0 724H1000M0 758H1000M0 792H1000M330 690v34M640 724v34M180 758v34M820 758v34" stroke="rgba(90,60,30,.25)" stroke-width="2" fill="none"/><rect y="680" width="1000" height="14" fill="#fffaf0"/>
+<ellipse cx="500" cy="745" rx="400" ry="40" fill="#ebcba5"/><ellipse cx="500" cy="745" rx="356" ry="31" fill="none" stroke="#e2603f" stroke-width="3" stroke-dasharray="14 10" opacity=".55"/>
+<ellipse cx="86" cy="250" rx="130" ry="160" fill="url(#gl)"/><rect x="84" y="296" width="5" height="394" fill="#3b2a18"/><ellipse cx="86" cy="690" rx="34" ry="8" fill="#3b2a18"/><path d="M52 298L66 234H108L122 298Z" fill="#f0b429"/>
+<rect x="150" y="407" width="700" height="190" rx="38" fill="#5f7d3c"/><rect x="118" y="480" width="86" height="180" rx="34" fill="#4c6830"/><rect x="796" y="480" width="86" height="180" rx="34" fill="#4c6830"/><rect x="150" y="540" width="700" height="112" rx="26" fill="#4c6830"/><rect x="196" y="505" width="300" height="86" rx="22" fill="#6c8c43"/><rect x="504" y="505" width="300" height="86" rx="22" fill="#6c8c43"/><rect x="152" y="652" width="12" height="38" rx="4" fill="#3b2a18"/><rect x="836" y="652" width="12" height="38" rx="4" fill="#3b2a18"/>
+<rect x="232" y="432" width="104" height="96" rx="20" fill="#e2603f" transform="rotate(-6 284 480)"/><rect x="662" y="436" width="100" height="92" rx="20" fill="#f0b429" transform="rotate(5 712 482)"/><rect x="580" y="452" width="82" height="78" rx="16" fill="#9fd0ee" transform="rotate(-3 621 491)"/>
+<path d="M906 640h62l-8 50h-46z" fill="#c8623a"/><g transform="translate(937 642)"><path d="M0 0C-40 -40 -48 -110 -22 -160C12 -112 12 -40 0 0Z" fill="#4a6a2a"/><path transform="rotate(28)" d="M0 0C-40 -40 -48 -110 -22 -160C12 -112 12 -40 0 0Z" fill="#6b8a3a"/><path transform="rotate(-30)" d="M0 0C-40 -40 -48 -110 -22 -160C12 -112 12 -40 0 0Z" fill="#3f5a2a"/><path transform="rotate(55)" d="M0 0C-34 -30 -40 -86 -18 -126C10 -88 10 -30 0 0Z" fill="#87a64f"/><path transform="rotate(-58)" d="M0 0C-34 -30 -40 -86 -18 -126C10 -88 10 -30 0 0Z" fill="#5d7a34"/></g>
+<g stroke="#3b2a18" stroke-width="3" fill="none"><path d="M40 772h167M40 764v16M207 764v16"/></g><text x="40" y="758" font-size="20" fill="#3b2a18" font-family="Inter,sans-serif">50 см</text></svg><div class="wp"><div class="wm"><img id="wImg" alt=""></div></div></div>
+        <div class="wc rv">
+          <p class="k">Размер</p><div class="sz" id="wSz"></div>
+          <p class="wl" id="wLbl"></p>
+          <p class="k" style="margin-top:24px">Избери творба</p><div class="pk" id="wPk"></div>
+          <p class="mut small">Диванът е около 2 м — мащабът е ориентировъчен.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band cmb" id="poruchka">
+    <span class="dc d-tr" data-d="c" data-s="16"></span><span class="dc d-bl" data-d="c" data-s="17"></span>
+    <div class="sec">
+      <div class="sh">
+        <p class="sc rv">Commission Inquiry</p>
+        <h2 class="rv">Картина <em>по поръчка</em></h2>
+        <div class="dv rv"><span class="m" data-d="s" data-s="10"></span><b>◆</b><span class="m mir" data-d="s" data-s="11"></span></div>
+        <p class="sub rv">Избери техника, размер и тема — калкулаторът показва ориентировъчна цена и срок за изработка.</p>
+      </div>
+      <div class="cg">
+        <div class="rv">
+          <fieldset><legend>Техника</legend><div class="chp" id="cm_tech"></div></fieldset>
+          <fieldset><legend>Размер</legend><div class="chp" id="cm_size"></div></fieldset>
+          <fieldset><legend>Тема</legend><div class="chp" id="cm_theme"></div></fieldset>
+        </div>
+        <aside class="cres cf rv" aria-live="polite">
+          <p class="k">Ориентировъчна оферта</p>
+          <div class="cp" id="cmPrice">—</div>
+          <p>Срок за изработка: <b id="cmDays">—</b></p>
+          <p class="mut small" id="cmSum"></p>
+          <label class="lb2" for="cmEmail">Твоят имейл</label><input class="fld" id="cmEmail" type="email" autocomplete="email" placeholder="ime@primer.com">
+          <label class="lb2" for="cmNote">Пожелания (по избор)</label><textarea class="fld" id="cmNote" rows="3"></textarea>
+          <p class="err" id="cmErr"></p>
+          <button class="btn" id="cmSend">Изпрати запитването</button>
+          <p class="mut small" id="cmMsg"></p>
+          <p class="fine">Цената и срокът са ориентировъчни и се потвърждават след разговор. Имейлът се използва само за отговор на запитването.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="band cb2" id="sertifikat">
+    <span class="dc d-br" data-d="c" data-s="18"></span>
+    <div class="sec"><div class="cg2">
+      <div>
+        <p class="sc rv">Гаранция за автентичност</p>
+        <h2 class="rv">Сертификат за <em>автентичност</em></h2>
+        <div class="dv rv" style="justify-content:flex-start"><span class="m" data-d="s" data-s="12"></span></div>
+        <p class="rv mut" style="font-size:1.14rem">Всяка оригинална творба от Marc Gallery пристига с <b>ръчно подписан от Marc K. сертификат за автентичност</b>, <b>уникален сериен номер</b> и <b>печат</b> — документ, който гарантира произхода и единствеността на картината.</p>
+        <ul class="cl rv"><li style="--c:var(--coral)"><span><b>Ръчен подпис</b>Всеки сертификат е подписан лично от Marc K.</span></li><li style="--c:var(--ol)"><span><b>Уникален сериен номер</b>Номерът се води само за една творба.</span></li><li style="--c:#c8901b"><span><b>Печат на галерията</b>Официален печат на Marc Gallery.</span></li></ul>
+      </div>
+      <div class="cardc cf rv">
+        <small>Marc Gallery · Образец</small><h3>Certificate of Authenticity</h3><div class="bg2">Сертификат за автентичност</div>
+        <div class="ln"><span>Автор</span><b>Mark Kurdzhiev</b></div><div class="ln"><span>Заглавие</span><b>Октомврийска тишина</b></div><div class="ln"><span>Техника</span><b>Акварел</b></div><div class="ln"><span>Година</span><b>2026</b></div><div class="ln"><span>Сериен №</span><b>MG-2026-0017</b></div>
+        <div class="sgn"><div><div class="sg">Marc K.</div><small style="margin-top:6px">Подпис</small></div>
+        <svg class="stamp" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="sp" d="M60 60m-42 0a42 42 0 1 1 84 0a42 42 0 1 1-84 0"/></defs><circle cx="60" cy="60" r="56" fill="#c8452e"/><circle cx="60" cy="60" r="50" fill="none" stroke="#f3d9a0" stroke-width="1.5" stroke-dasharray="3 3"/><circle cx="60" cy="60" r="31" fill="none" stroke="#f3d9a0" stroke-width="1.2"/><text font-size="10" letter-spacing="2.4" fill="#f3d9a0" font-family="Inter,sans-serif"><textPath href="#sp">MARC GALLERY · AUTHENTIC ·</textPath></text><text x="60" y="71" text-anchor="middle" font-size="30" fill="#f3d9a0" font-family="Cormorant Garamond,serif" font-weight="600">MG</text></svg></div>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="band vip" id="vip">
+    <div class="scal t"></div>
+    <span class="dc d-bl" data-d="c" data-s="19"></span><span class="dc d-tr" data-d="c" data-s="20"></span>
+    <div class="sec">
+      <div class="vb cf rv">
+        <p class="sc">Early Access</p>
+        <h2>VIP списък за <em>колекционери</em></h2>
+        <div class="dv"><span class="m" data-d="s" data-s="13"></span><b>◆</b><span class="m mir" data-d="s" data-s="14"></span></div>
+        <p>Запиши се с имейл и получавай <b>ранен достъп 24 часа предварително</b> до новите акварелни и маслени творби — преди те да се появят в галерията.</p>
+        <div class="vr"><input class="fld" id="vipEmail" type="email" autocomplete="email" placeholder="Твоят имейл" aria-label="Имейл за VIP списъка"><button class="btn" id="vipSend">Запиши ме</button></div>
+        <label class="vo"><input type="checkbox" id="vipOk"><span>Съгласен/на съм да получавам известия за нови творби. Мога да се отпиша по всяко време.</span></label>
+        <p class="err" id="vipErr"></p><p id="vipMsg" style="color:var(--ol2);font-weight:500"></p>
+      </div>
+    </div>
+    <div class="scal"></div>
   </section>
 
   <section class="band exs" id="izlozhbi">
@@ -304,7 +439,7 @@ dialog[open]{animation:pop .55s var(--e)}@keyframes pop{from{opacity:0;transform
   <div class="fw">
     <div class="fg">
       <div><div class="fb">Marc Gallery</div><p>Авторско изкуство и акварели от Марк Курджиев.</p><p>Mark Art · Mark Watercolor</p><p>Велико Търново / Barcelona</p></div>
-      <div><h4>Навигация</h4><ul><li><a href="#galeria">Галерия</a></li><li><a href="#izlozhbi">Изложби</a></li><li><a href="#nagradi">Награди</a></li><li><a href="#za-mene">За мен</a></li><li><a href="#" id="fcart">Моята количка</a></li></ul></div>
+      <div><h4>Навигация</h4><ul><li><a href="#galeria">Галерия</a></li><li><a href="#stena">Пробна за стена</a></li><li><a href="#poruchka">Поръчка по избор</a></li><li><a href="#sertifikat">Сертификат</a></li><li><a href="#vip">VIP списък</a></li><li><a href="#izlozhbi">Изложби</a></li><li><a href="#nagradi">Награди</a></li><li><a href="#za-mene">За мен</a></li><li><a href="#" id="fcart">Моята количка</a></li></ul></div>
       <div><h4>За мен</h4><p>Млад акварелист и моден илюстратор. 2 успешни изложби, мои картини има в Испания и Франция.</p><p><a href="#za-mene">Прочети повече</a></p></div>
       <div><h4>Информация</h4><p>Имейл и контакт: <a id="fmail"></a></p><p>DM: пиши ми в Instagram <a href="https://www.instagram.com/mcarte_/" target="_blank" rel="noopener">@mcarte_</a></p><p>Сайт: <a href="https://marcgallery.eu">marcgallery.eu</a></p><p>Поръчки и картини по поръчка — пиши ми в Instagram или Facebook.</p><p class="fc">Всяка картина върви със сертификат за автентичност.</p></div>
     </div>
@@ -439,6 +574,7 @@ function openLb(id){
   $("#lbImg").src = imgOf(a); $("#lbImg").alt = a.title;
   $("#lbT").innerHTML = `<p class="k">${CATS[a.type] || "Акварел"}</p><h3>${a.title}</h3><dl><dt>Техника</dt><dd>${tech(a)}</dd>${a.size ? `<dt>Размер</dt><dd>${a.size}</dd>` : ""}<dt>Статус</dt><dd>${a.sold ? "Продадена" : "Налична"}</dd><dt>Сертификат</dt><dd>Да — за автентичност</dd></dl><p>${a.desc || DESC}</p><div class="buy"><span class="pr"${a.sold ? ' style="text-decoration:line-through;opacity:.55"' : ""}>${money(a.price)}</span>${a.sold ? '<span class="k" style="margin:0">Продадена</span>' : '<button class="btn" id="lbAdd">Добави в количката</button>'}</div>`;
   const b = $("#lbAdd"); if(b) b.onclick = () => { $("#lb").close(); add(a.id); };
+  $("#lbT").insertAdjacentHTML("beforeend", '<button class="lk2" id="lbWall">Пробна за стена →</button>'); $("#lbWall").onclick = () => { $("#lb").close(); tryWall(a.id); };
   if(!$("#lb").open) $("#lb").showModal();
 }
 function step(d){ const l = vis(), i = l.findIndex(a => a.id === cur); openLb((i > -1 ? l[(i + d + l.length) % l.length] : ARTS[0]).id); }
@@ -513,6 +649,68 @@ function sprig(seed){
 }
 $$("[data-d]").forEach(el => { const s = +el.dataset.s || 1; el.innerHTML = el.dataset.d === "c" ? cluster(s) : sprig(s); });
 $$(".cf").forEach(el => el.insertAdjacentHTML("beforeend", [1,2,3,4].map(i => `<svg class="cn c${i}" aria-hidden="true"><use href="#flr"/></svg>`).join("")));
+/* ===== поръчка по избор, пробна за стена, VIP ===== */
+/* ориентировъчни цени (€) и срокове (дни) — редактирай тук */
+const CM = {
+  tech:  {water:{label:"Акварел върху 300 GSM памучна хартия Arches", mult:1, days:0}, oil:{label:"Маслени бои", mult:1.5, days:12}},
+  size:  {a4:{label:"A4 · 21 × 30 см", base:90, days:5}, a3:{label:"A3 · 30 × 42 см", base:120, days:7}, s50:{label:"50 × 70 см", base:190, days:12}},
+  theme: {landscape:{label:"Пейзаж", add:0, days:0}, floral:{label:"Флорална композиция", add:10, days:1}, still:{label:"Натюрморт", add:10, days:2}, abstract:{label:"Абстрактно изкуство", add:0, days:0}}
+};
+const cmSel = {tech:"water", size:"a3", theme:"landscape"};
+async function sendForm(kind, subject, text, data){
+  if(SITE.orderEndpoint){ try { const r = await fetch(SITE.orderEndpoint, {method:"POST", headers:{"Content-Type":"application/json", Accept:"application/json"}, body:JSON.stringify({kind, ...data, text})}); if(r.ok) return true; } catch(e){} }
+  location.href = `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`; return false;
+}
+const okMail = v => /^\S+@\S+\.\S+$/.test(v);
+function cmCalc(){
+  const t = CM.tech[cmSel.tech], s = CM.size[cmSel.size], th = CM.theme[cmSel.theme];
+  const price = Math.round((s.base * t.mult + th.add) / 5) * 5, d1 = s.days + t.days + th.days, d2 = d1 + 5;
+  $("#cmPrice").textContent = money(price); $("#cmDays").textContent = `${d1}–${d2} дни`; $("#cmSum").textContent = `${t.label} · ${s.label} · ${th.label}`;
+  return {price, d1, d2, t, s, th};
+}
+["tech", "size", "theme"].forEach(g => {
+  $("#cm_" + g).innerHTML = Object.entries(CM[g]).map(([k, v]) => `<label class="opt"><input type="radio" name="cm_${g}" value="${k}"${cmSel[g] === k ? " checked" : ""}><span>${v.label}</span></label>`).join("");
+  $$(`input[name=cm_${g}]`).forEach(r => r.onchange = () => { cmSel[g] = r.value; cmCalc(); });
+});
+cmCalc();
+$("#cmSend").onclick = async () => {
+  const em = $("#cmEmail").value.trim(); if(!okMail(em)){ $("#cmErr").textContent = "Въведи валиден имейл."; return; }
+  $("#cmErr").textContent = ""; $("#cmSend").disabled = true;
+  const c = cmCalc(), note = $("#cmNote").value.trim();
+  const text = `Запитване за картина по поръчка\nТехника: ${c.t.label}\nРазмер: ${c.s.label}\nТема: ${c.th.label}\nОриентировъчна цена: ${money(c.price)}\nСрок: ${c.d1}–${c.d2} дни\nИмейл: ${em}${note ? "\nПожелания: " + note : ""}`;
+  const sent = await sendForm("commission", "Запитване за картина по поръчка — Marc Gallery", text, {email:em, price:c.price, days:`${c.d1}-${c.d2}`, tech:cmSel.tech, size:cmSel.size, theme:cmSel.theme, note});
+  $("#cmMsg").textContent = sent ? "Благодаря! Запитването е изпратено — ще ти отговоря на имейла." : "Отвори се имейл — изпрати го, за да стигне запитването до мен.";
+  setTimeout(() => { $("#cmSend").disabled = false; }, 3000);
+};
+$("#vipSend").onclick = async () => {
+  const em = $("#vipEmail").value.trim();
+  if(!okMail(em)){ $("#vipErr").textContent = "Въведи валиден имейл."; return; }
+  if(!$("#vipOk").checked){ $("#vipErr").textContent = "Потвърди съгласието си, за да се запишеш."; return; }
+  $("#vipErr").textContent = ""; $("#vipSend").disabled = true;
+  const sent = await sendForm("vip", "Нов запис във VIP списъка — Marc Gallery", `VIP списък за колекционери (ранен достъп 24 ч.)\nИмейл: ${em}`, {email:em});
+  $("#vipMsg").textContent = sent ? "Благодаря! Записан си във VIP списъка — ще получаваш ранен достъп 24 часа преди всички." : "Отвори се имейл — изпрати го, за да завършим записването.";
+  setTimeout(() => { $("#vipSend").disabled = false; }, 3000);
+};
+/* пробна за стена */
+let wallId = 17, wallSize = "a3"; const AR = {};
+const WS = {a4:[21, 30, "A4 · 21 × 30 см"], a3:[30, 42, "A3 · 30 × 42 см"], s50:[50, 70, "50 × 70 см"]};
+function renderWall(){
+  const a = ARTS.find(x => x.id === wallId) || ARTS[0], [w, h, lb] = WS[wallSize], land = AR[a.id], im = $("#wImg");
+  if(im.getAttribute("src") !== IMG[a.id]) im.src = IMG[a.id]; im.alt = a.title;
+  im.style.setProperty("--w", land ? h : w); im.style.setProperty("--h", land ? w : h);
+  $("#wLbl").innerHTML = `<b>${lb}</b>${land ? " (хоризонтално)" : ""} · „${a.title}“`;
+  $$("#wSz button").forEach(b => b.setAttribute("aria-pressed", b.dataset.s === wallSize));
+  $$("#wPk button").forEach(b => b.setAttribute("aria-pressed", +b.dataset.w === wallId));
+}
+$("#wSz").innerHTML = Object.entries(WS).map(([k, v]) => `<button class="bt2" data-s="${k}">${v[2]}</button>`).join("");
+$("#wPk").innerHTML = ARTS.map((a, i) => `<button data-w="${a.id}" style="--m:${MC[i % MC.length]}" aria-label="${a.title}"><img src="${imgOf(a)}" alt="" loading="lazy"></button>`).join("");
+$("#stena").addEventListener("click", e => {
+  const s = e.target.closest("[data-s]"), w = e.target.closest("[data-w]");
+  if(s){ wallSize = s.dataset.s; renderWall(); } if(w){ wallId = +w.dataset.w; renderWall(); }
+});
+ARTS.forEach(a => { const i = new Image(); i.onload = () => { AR[a.id] = i.naturalWidth > i.naturalHeight; if(a.id === wallId) renderWall(); }; i.src = IMG[a.id]; });
+function tryWall(id){ wallId = id; renderWall(); $("#stena").scrollIntoView({behavior:"smooth"}); }
+renderWall();
 renderFilters(); renderGrid(); renderCart(); reveal();
 </script>
 </body>
