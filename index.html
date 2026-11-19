@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="bg">
 <head>
@@ -29,7 +28,7 @@ em{font-style:italic;color:var(--coral)}
 /* декорации */
 .band{position:relative;overflow:hidden}.sec{position:relative;z-index:2;max-width:1400px;margin:0 auto;padding:130px 5vw}
 .dc{position:absolute;z-index:1;pointer-events:none;width:min(40vw,480px);translate:0 var(--py,0px);animation:sway 11s ease-in-out infinite alternate;transform-origin:center}
-.dc>svg{width:100%;height:auto;overflow:visible}.hero .d-bl{width:min(24vw,340px);left:-70px}.hero .d-tr{width:min(30vw,420px)}
+.dc>svg{width:100%;height:auto;overflow:visible}.hero .d-bl{width:min(24vw,340px);left:-120px}.hero .d-tr{top:60px}.hero .d-tr{width:min(30vw,420px)}
 @keyframes sway{from{rotate:-1.6deg}to{rotate:1.6deg}}
 .d-bl{left:-30px;bottom:-14px}.d-tl{left:-30px;top:-14px;transform:scaleY(-1)}.d-br{right:-30px;bottom:-14px;transform:scaleX(-1)}.d-tr{right:-30px;top:-14px;transform:scale(-1,-1)}
 .dv{display:flex;align-items:center;justify-content:center;gap:10px;margin:18px 0 22px;color:var(--gold)}.dv .m{width:min(200px,28vw)}.dv .m>svg{width:100%;height:auto;overflow:visible}.dv .mir{transform:scaleX(-1)}
@@ -211,40 +210,62 @@ dialog[open]{animation:pop .55s var(--e)}@keyframes pop{from{opacity:0;transform
 .vr{display:flex;gap:10px;max-width:600px;margin:24px auto 0}.vr .fld{flex:1}.vo{display:flex;gap:10px;align-items:flex-start;justify-content:center;margin:16px auto 0;max-width:560px;font-size:.84rem;color:var(--mut);text-align:left}.vo input{margin-top:4px;accent-color:var(--ol)}
 .lk2{margin-top:10px;border:0;background:none;color:var(--saf);font:500 .68rem var(--sans);letter-spacing:.22em;text-transform:uppercase;cursor:pointer;text-align:left;padding:0;border-bottom:1px solid rgba(240,180,41,.5);align-self:flex-start}.lk2:hover{color:#fff}
 @media(max-width:900px){.wg,.cg,.cg2{grid-template-columns:1fr}.cres{position:relative;top:0}.vr{flex-direction:column}.cardc{padding:34px 22px}}
-
-/* ===== ПРАЗНИЧНА КАМПАНИЯ (-20%), BUNDLE КАЛКУЛАТОР, КУРАТОРСКА БЕЛЕЖКА И НОВИ СТАТУСИ ===== */
-.promo-bar{background:linear-gradient(90deg,#2b3919,#7a3b5c 50%,#2b3919);color:#fbf4df;text-align:center;padding:11px 4vw;font:400 .78rem var(--sans);letter-spacing:.14em;border-bottom:1px solid rgba(224,194,119,.45);position:relative;z-index:45}
-.promo-bar b{color:var(--saf);font-weight:600}
-.promo-bar a{color:var(--saf);text-decoration:underline;margin-left:8px;font-weight:500}
-.hd{top:42px}.hd.sc{top:0}
-.promo-card{margin:0 auto 48px;max-width:960px;padding:32px 36px;background:linear-gradient(145deg,#2b3919,#3d5024);color:#fbf4df;display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:center;box-shadow:0 26px 50px -24px rgba(43,57,25,.65),inset 0 0 0 5px #2b3919,inset 0 0 0 6px var(--gl);position:relative}
-.promo-card h3{font-size:clamp(2rem,3.6vw,2.8rem);color:#fbf4df;margin:4px 0 8px}
-.promo-card h3 em{color:var(--saf)}
-.promo-card p{margin:0;color:#dfe3c6;font-size:.98rem}
-.bundle-box{background:rgba(255,250,240,.08);border:1px dashed var(--gl);padding:18px 20px}
-.bundle-box .k{color:var(--saf);display:block;margin-bottom:6px}
-.pr-wrap{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
-.pr-old{font:400 .92rem var(--sans);text-decoration:line-through;opacity:.55}
-.pr-new{font:600 1.2rem var(--sans);color:var(--coral)}
-.bd.r{background:var(--saf);border-color:var(--saf);color:var(--ol2)}
-.bd.p{background:var(--plum);border-color:var(--plum);color:#fff}
-.curator{max-width:980px;margin:48px auto 0;padding:42px 44px;background:var(--paper);box-shadow:0 24px 46px -24px rgba(43,57,25,.45),inset 0 0 0 6px var(--paper),inset 0 0 0 7px var(--gold);position:relative}
-.curator-grid{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
-.curator-seal{width:84px;height:84px;border-radius:50%;background:var(--ol2);color:var(--gl);display:grid;place-items:center;font:600 1.6rem var(--serif);border:2px solid var(--gold);flex:none}
-.curator blockquote{margin:10px 0 12px;font:italic 400 1.35rem/1.55 var(--serif);color:var(--ol2)}
-.bundle-line{display:flex;justify-content:space-between;padding:8px 12px;background:#e3ebcb;color:var(--ol2);font-size:.9rem;margin-bottom:8px;border-left:3px solid var(--ol)}
-@media(max-width:900px){.promo-card,.curator-grid{grid-template-columns:1fr}.hd{top:56px}.hd.sc{top:0}}
+/* ===== празнична кампания, статуси, избрани творби, бележка на куратора ===== */
+.pbar{position:fixed;inset:0 0 auto;z-index:45;height:40px;display:flex;align-items:center;justify-content:center;gap:14px;padding:0 4vw;background:linear-gradient(90deg,#7a3b5c,#e2603f,#f0b429,#e2603f,#7a3b5c);background-size:300% 100%;animation:shine 14s linear infinite;color:#fff;font:500 .7rem var(--sans);letter-spacing:.14em;text-transform:uppercase;text-align:center;overflow:hidden;white-space:nowrap}
+@keyframes shine{to{background-position:300% 0}}.pbar[hidden]{display:none}.pbar a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+body.promo .hd{top:40px}body.promo .hw{padding-top:170px}
+.ov nav{display:grid;grid-template-columns:1fr 1fr;align-content:center;gap:0 4vw}.ov nav a{font-size:clamp(1.4rem,2.6vw,2.3rem)}.ov.open nav a:nth-child(n+6){transition-delay:.6s}
+@media(max-width:700px){.ov nav{grid-template-columns:1fr}.ov nav a{font-size:1.55rem}.pbar{font-size:.58rem;letter-spacing:.08em}}
+.bd.available{}.bd.sold{background:var(--ink);border-color:var(--ink);color:#f8efd6}.bd.reserved{background:var(--saf);border-color:var(--saf);color:var(--ol2)}.bd.private{background:var(--plum);border-color:var(--plum);color:#fff}
+.leg{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:-24px 0 40px}.leg .bd{position:static}
+.pt2{position:absolute;top:30px;right:30px;z-index:2;padding:5px 12px;background:var(--coral);color:#fff;font:600 .66rem var(--sans);letter-spacing:.14em}
+.pr s{opacity:.5;font-size:.82em;margin-right:6px;font-weight:400}.pr b{color:var(--coral);font-weight:600}.st-reserved .pr,.st-private .pr{text-decoration:none;opacity:.85}
+.stx{font-weight:600}.stx.reserved{color:#c8901b}.stx.private{color:var(--plum)}.stx.sold{color:var(--ink)}.stx.available{color:var(--ol)}
+.lbt .stx.available{color:#a3b872}.lbt .stx.sold{color:#c9ceb0}.lbt .stx.private{color:#e8869b}.lbt .pr s{color:#c9ceb0}.lbt .pr b{color:var(--saf)}
+.cn2{padding:14px 16px;border-left:3px solid var(--saf);background:rgba(255,255,255,.06)}.cn2 b{display:block;font:500 .66rem var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--saf);margin-bottom:6px}
+#oTotal{display:block}.sm{display:flex;justify-content:space-between;gap:14px;font-size:.95rem;color:var(--mut);padding:3px 0}.tt{display:flex;justify-content:space-between;font:600 1.7rem var(--serif);padding-top:8px}
+.bn{color:var(--coral);font-style:normal}.upsell{margin:6px 0 0;padding:10px 14px;background:#fde7c3;color:var(--ol2);font-size:.9rem}
+/* тъмна празнична секция — Жостово + течно стъкло */
+.pm{background:radial-gradient(50vw 40vw at 18% 28%,rgba(230,162,60,.16),transparent 62%),radial-gradient(45vw 40vw at 88% 82%,rgba(162,74,140,.3),transparent 62%),linear-gradient(180deg,#0b1015,#10191f 55%,#0a0f13);color:#f4ecd9}
+.pm .dc{filter:drop-shadow(0 0 18px rgba(230,162,60,.28))}.pm .sec{padding:120px 5vw 110px}
+.bigp{font:500 clamp(7rem,27vw,23rem)/.8 var(--serif);letter-spacing:-.04em;text-align:center;background:linear-gradient(180deg,#fff,#cfd6dc 38%,#76828c 70%,#e9eef2);-webkit-background-clip:text;background-clip:text;color:transparent;opacity:.92;margin-bottom:-.12em}
+.pg{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;margin-top:-6vw}
+.lg{position:relative;padding:44px 40px 46px;border-radius:58px 92px 64px 86px/78px 58px 92px 66px;background:linear-gradient(135deg,rgba(255,255,255,.2),rgba(255,255,255,.05));-webkit-backdrop-filter:blur(22px) saturate(170%);backdrop-filter:blur(22px) saturate(170%);border:1px solid rgba(255,255,255,.42);box-shadow:inset 0 1px 0 rgba(255,255,255,.55),inset 0 -14px 34px rgba(255,255,255,.06),0 40px 70px -26px rgba(0,0,0,.7)}
+.lg h3{font-size:clamp(2.2rem,3.6vw,3rem);margin:6px 0 12px;color:#fff6e2}.lg p{color:#d7d3c0}.lg .k{color:#e6c27a;margin:0}
+.drip{position:absolute;left:8%;top:calc(100% - 3px);width:84%;height:40px;fill:rgba(255,255,255,.17);stroke:none;filter:drop-shadow(0 6px 8px rgba(0,0,0,.35));pointer-events:none}
+.cdn{display:flex;gap:12px;margin:22px 0}.cdn div{min-width:68px;padding:10px 8px;text-align:center;border-radius:24px 30px 22px 28px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3)}.cdn b{display:block;font:600 2rem/1 var(--serif);color:#fff}.cdn span{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#e6c27a}
+.pm .btn{background:#e6a23c;border-color:#e6a23c;color:#1a1306}.pm .btn:hover{background:#fff;border-color:#fff;color:#1a1306}
+.lb3{display:block;font:500 .66rem var(--sans);letter-spacing:.22em;text-transform:uppercase;margin:14px 0 6px;color:#e6c27a}
+.lg .fld{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.4);border-radius:18px}.lg .fld option{color:#111}
+.bres{margin:16px 0 18px;padding:14px 16px;border-radius:20px;background:rgba(0,0,0,.25)}.bres .sm{color:#d7d3c0}.bres .tt{color:#fff}.sv{margin:6px 0 0;color:#e6c27a!important;font-weight:500}.fine2{margin:50px auto 0;max-width:760px;text-align:center;font-size:.8rem;color:#9aa3a8}
+.pet{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}.pet i{position:absolute;top:-6%;width:20px;height:28px;border-radius:70% 0 70% 0;opacity:.8;scale:var(--s);animation:fall var(--d) linear var(--dl) infinite,sw 4s ease-in-out infinite alternate}
+@keyframes fall{from{top:-6%;rotate:0deg}to{top:104%;rotate:360deg}}@keyframes sw{from{translate:-26px 0}to{translate:26px 0}}
+.cur .pet i{opacity:.5}
+/* избрани творби — витрина като в ателие */
+.fx{background:radial-gradient(40vw 25vw at 15% 12%,rgba(255,255,255,.7),transparent 62%),radial-gradient(35vw 25vw at 90% 70%,rgba(255,255,255,.55),transparent 62%),linear-gradient(180deg,var(--cream),#e6e5da 9%,#e6e5da 91%,var(--cream))}
+.bkt{font:400 1.2rem var(--serif);letter-spacing:.22em;color:var(--coral);margin:0 0 8px;text-align:center}
+.sr{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:6vw;align-items:center;margin:0 0 110px}.sr:nth-child(even) .srm{order:2}.sr:last-child{margin-bottom:0}
+.fr2{display:block;width:100%;border:0;padding:20px;background:var(--m);cursor:zoom-in;box-shadow:0 0 0 2px var(--paper),0 0 0 3px var(--gold),0 36px 56px -24px var(--m);transition:transform .8s var(--e)}.fr2:hover{transform:translateY(-8px) rotate(-.7deg)}
+.srt h3{font-size:clamp(2.6rem,5vw,4.2rem);color:var(--ol2);margin:6px 0 12px}.srt .k{margin:0;color:var(--coral)}
+.dl2{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0 0 18px;font:500 .7rem var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--mut)}
+.cn3{margin:0 0 16px;padding-left:18px;border-left:3px solid var(--gold);font-size:1.08rem;color:var(--mut)}.pr2{font:600 1.6rem var(--serif);margin:0 0 18px}.pr2 s{opacity:.5;font-size:.8em;margin-right:8px}.pr2 b{color:var(--coral)}
+.srb{display:flex;gap:12px;flex-wrap:wrap}.btn.o{background:transparent;color:var(--ol2);border-color:var(--ol2)}.btn.o:hover{background:var(--ol2);color:#fff;border-color:var(--ol2)}
+/* бележка на куратора */
+.cur{background:radial-gradient(40vw 30vw at 100% 8%,rgba(232,134,155,.35),transparent 62%),radial-gradient(40vw 30vw at 0 100%,rgba(240,180,41,.3),transparent 62%),var(--cream)}
+.cu{max-width:1040px;margin:0 auto;position:relative;z-index:2}.cu h2{text-align:center;margin-bottom:34px}
+.cuc{columns:2;column-gap:56px;font-size:1.12rem;color:var(--mut)}.cuc p{margin:0 0 16px;break-inside:avoid-column}.cuc p:first-child::first-letter{float:left;font:500 5.2rem/.8 var(--serif);color:var(--coral);padding:8px 12px 0 0}
+.qt{margin:34px auto 0;max-width:720px;text-align:center;font:400 clamp(1.9rem,3.4vw,2.8rem)/1.2 var(--scr);color:var(--ol2);position:relative}.qt::before{content:"“";display:block;font:500 6rem/.6 var(--serif);color:var(--gold);opacity:.6}
+.cuf{text-align:center;margin-top:18px;font:500 .7rem var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+@media(max-width:900px){.pg,.sr{grid-template-columns:1fr}.sr:nth-child(even) .srm{order:0}.cuc{columns:1}.pg{margin-top:-4vw}.lg{padding:36px 26px 40px}}
 </style>
 </head>
 <body>
+<div class="pbar" id="pbar" hidden><span>✦ Празнична кампания · −20% на всички творби · 17.11 – 17.12</span><span class="pb2">· 2 творби = втората с −30%</span><a href="#aktsia">Виж →</a></div>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
 <symbol id="flr" viewBox="0 0 64 64"><path d="M3 61C3 28 28 3 61 3M3 44C3 25 20 8 40 8M14 14c7 0 12 5 12 12M3 61c8-10 14-14 24-16M61 3c-10 8-14 14-16 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="14" cy="14" r="3" fill="currentColor"/></symbol>
 <symbol id="blm" viewBox="0 0 100 100"><g fill="currentColor"><ellipse cx="50" cy="24" rx="14" ry="24"/><ellipse cx="50" cy="24" rx="14" ry="24" transform="rotate(60 50 50)"/><ellipse cx="50" cy="24" rx="14" ry="24" transform="rotate(120 50 50)"/><ellipse cx="50" cy="24" rx="14" ry="24" transform="rotate(180 50 50)"/><ellipse cx="50" cy="24" rx="14" ry="24" transform="rotate(240 50 50)"/><ellipse cx="50" cy="24" rx="14" ry="24" transform="rotate(300 50 50)"/></g><g fill="#fff" fill-opacity=".28"><ellipse cx="50" cy="31" rx="7" ry="15"/><ellipse cx="50" cy="31" rx="7" ry="15" transform="rotate(60 50 50)"/><ellipse cx="50" cy="31" rx="7" ry="15" transform="rotate(120 50 50)"/><ellipse cx="50" cy="31" rx="7" ry="15" transform="rotate(180 50 50)"/><ellipse cx="50" cy="31" rx="7" ry="15" transform="rotate(240 50 50)"/><ellipse cx="50" cy="31" rx="7" ry="15" transform="rotate(300 50 50)"/></g><circle cx="50" cy="50" r="11" fill="#f0b429"/><circle cx="50" cy="50" r="5" fill="#b9701a"/></symbol>
 </defs></svg>
 
-<div class="promo-bar" role="region" aria-label="Празнична оферта">
-  ✦ ПРАЗНИЧНА СЕЛЕКЦИЯ (17 ноември – 17 декември): <b>-20% на всички картини</b> + <b>-30% за втора творба</b> в количката <a href="#galeria">Разгледай →</a>
-</div>
 <header class="hd" id="hd">
   <a class="logo" href="#top">Marc Gallery<small>Fine Art · Watercolors</small></a>
   <div class="hr">
@@ -255,7 +276,7 @@ dialog[open]{animation:pop .55s var(--e)}@keyframes pop{from{opacity:0;transform
 <div class="ov" id="ov" aria-hidden="true">
   <span class="dc d-bl" data-d="c" data-s="9" data-sp="0"></span><span class="dc d-tr" data-d="c" data-s="4" data-sp="0"></span>
   <div class="ovh"><span class="logo">Marc Gallery</span><button class="ovx" id="ovx" aria-label="Затвори менюто">×</button></div>
-  <nav aria-label="Основно меню"><a href="#galeria" data-n="01">Галерия</a><a href="#stena" data-n="02">Пробна за стена</a><a href="#poruchka" data-n="03">Поръчка по избор</a><a href="#sertifikat" data-n="04">Сертификат</a><a href="#vip" data-n="05">VIP списък</a><a href="#izlozhbi" data-n="06">Изложби</a><a href="#nagradi" data-n="07">Награди</a><a href="#za-mene" data-n="08">За мен</a><a href="#kontakt" data-n="09">Контакт</a></nav>
+  <nav aria-label="Основно меню"><a href="#aktsia" data-n="01">Празнична акция</a><a href="#galeria" data-n="02">Галерия</a><a href="#izbrani" data-n="03">Избрани творби</a><a href="#kurator" data-n="04">Бележка на куратора</a><a href="#stena" data-n="05">Пробна за стена</a><a href="#poruchka" data-n="06">Поръчка по избор</a><a href="#sertifikat" data-n="07">Сертификат</a><a href="#vip" data-n="08">VIP списък</a><a href="#izlozhbi" data-n="09">Изложби</a><a href="#nagradi" data-n="10">Награди</a><a href="#za-mene" data-n="11">За мен</a><a href="#kontakt" data-n="12">Контакт</a></nav>
   <div class="ovf"><span>Велико Търново · Barcelona</span><a href="mailto:mark.kurdzhiev2013@gmail.com">mark.kurdzhiev2013@gmail.com</a><a href="https://www.instagram.com/mcarte_/" target="_blank" rel="noopener">@mcarte_</a></div>
 </div>
 
@@ -281,6 +302,32 @@ dialog[open]{animation:pop .55s var(--e)}@keyframes pop{from{opacity:0;transform
 
   <div class="strip" aria-label="Подбор творби"><div class="trk" id="trk"></div></div>
 
+  <section class="band pm" id="aktsia" hidden>
+    <span class="dc d-bl" data-d="c" data-k="d" data-s="21"></span><span class="dc d-tr" data-d="c" data-k="d" data-s="22"></span>
+    <div class="pet" id="pet1" aria-hidden="true"></div>
+    <div class="sec">
+      <p class="sc rv" style="text-align:center;color:#e6a23c">Winter Edit · празнична кампания</p>
+      <div class="bigp rv" aria-hidden="true">−20%</div>
+      <div class="pg">
+        <div class="lg rv"><svg class="drip" viewBox="0 0 400 44" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0H400V10C384 10 378 42 366 42S348 10 330 10H262C248 10 244 30 234 30S220 10 206 10H122C108 10 104 36 92 36S76 10 60 10H0Z"/></svg>
+          <p class="k">17 ноември – 17 декември 2026</p><h3>−20% на всички творби</h3>
+          <p>Всяка оригинална творба в галерията е с празнична цена до 17 декември. Отстъпката се прилага автоматично навсякъде — в галерията, прегледа на цял екран и количката.</p>
+          <div class="cdn"><div><b id="cdD">0</b><span>дни</span></div><div><b id="cdH">0</b><span>часа</span></div><div><b id="cdM">0</b><span>мин</span></div><div><b id="cdS">0</b><span>сек</span></div></div>
+          <a class="btn" href="#galeria">Към колекцията</a>
+        </div>
+        <div class="lg rv"><svg class="drip" viewBox="0 0 400 44" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0H400V10C384 10 378 42 366 42S348 10 330 10H262C248 10 244 30 234 30S220 10 206 10H122C108 10 104 36 92 36S76 10 60 10H0Z"/></svg>
+          <p class="k">Комплект</p><h3>2 творби — втората с −30%</h3>
+          <p>При покупка на две творби втората (с по-ниската цена) е с допълнителни −30%. Изчисли го тук:</p>
+          <label class="lb3" for="bA">Първа творба</label><select class="fld" id="bA"></select>
+          <label class="lb3" for="bB">Втора творба</label><select class="fld" id="bB"></select>
+          <div class="bres" id="bRes"></div>
+          <button class="btn" id="bAdd">Добави и двете в количката</button>
+        </div>
+      </div>
+      <p class="fine2 rv">Валидно от 17.11 до 17.12.2026 за оригиналните творби в галерията. Комплектът важи за двойки творби — втората (с по-ниската цена) е с −30% върху вече намалената цена. Не се отнася за картини по поръчка.</p>
+    </div>
+  </section>
+
   <section class="band intro-b" id="intro">
     <span class="dc d-tl" data-d="c" data-s="5"></span>
     <div class="sec intro">
@@ -294,18 +341,6 @@ dialog[open]{animation:pop .55s var(--e)}@keyframes pop{from{opacity:0;transform
         <p class="rv"><a class="btn" href="#za-mene">Запознай се с Марк</a></p>
       </div>
     </div>
-    <div class="curator cf rv" style="max-width:1400px;margin:0 auto 90px;padding-inline:5vw">
-      <div style="background:var(--paper);padding:42px 44px;box-shadow:0 24px 46px -24px rgba(43,57,25,.45),inset 0 0 0 6px var(--paper),inset 0 0 0 7px var(--gold);position:relative" class="cf">
-        <div class="curator-grid">
-          <div class="curator-seal" aria-hidden="true">MG</div>
-          <div>
-            <p class="k">Curator's Note · Музеен стандарт и провенанс</p>
-            <blockquote>„В акварелите на Марк Курджиев светлината не е просто фон, а жив участник — прозрачните слоеве върху 100% памучна хартия улавят мига преди баграта да изсъхне, съчетавайки средиземноморската топлина на Барселона с тишината на българските пейзажи.“</blockquote>
-            <p class="mut small" style="margin:0">Архивни пигменти · 100% памучна хартия без киселини (300–600 GSM) · Вписано в каталога на <b>Marc Gallery (marcgallery.eu)</b> · Отличено с <b>Diamond Certificate</b> (Picasso Concept Art Awards) и представяно в <b>България, Испания, Франция и Корея</b>.</p>
-          </div>
-        </div>
-      </div>
-    </div>
   </section>
 
   <section class="band gal" id="galeria">
@@ -317,21 +352,39 @@ dialog[open]{animation:pop .55s var(--e)}@keyframes pop{from{opacity:0;transform
         <div class="dv rv"><span class="m" data-d="s" data-s="2"></span><b>◆</b><span class="m mir" data-d="s" data-s="5"></span></div>
         <p class="sub rv">Акварели върху хартия. Кликни върху картина, за да я разгледаш в детайли на цял екран и да я добавиш в количката.</p>
       </div>
-            <div class="promo-card cf rv">
-        <div>
-          <p class="k" style="color:var(--saf)">Специална кампания · 17 ноември – 17 декември</p>
-          <h3><em>-20%</em> на всички оригинални творби</h3>
-          <p>Всички цени в галерията са автоматично намалени с 20% за периода от 17 ноември до 17 декември. Всяка картина пристига със сертификат за автентичност.</p>
-        </div>
-        <div class="bundle-box">
-          <span class="k">✦ Специален пакет (Bundle Deal)</span>
-          <p>При покупка на <b>2 или повече картини</b>, втората творба (с по-ниската цена) получава допълнителни <b>-30% отстъпка</b> автоматично в количката.</p>
-        </div>
-      </div>
       <div class="fl rv" id="fl"></div>
+      <div class="leg rv"><span class="bd available">Налична</span><span class="bd reserved">Резервирана</span><span class="bd private">Частна колекция</span><span class="bd sold">Продадена</span></div>
       <div class="grid" id="grid"></div>
       <p class="note rv cf">Колекцията расте — до 40 оригинални творби. Всяка се изпраща опакована и защитена, със сертификат за автентичност.</p>
     </div>
+  </section>
+
+  <section class="band fx" id="izbrani">
+    <span class="dc d-tr" data-d="c" data-s="23" style="opacity:.8"></span>
+    <div class="sec">
+      <div class="sh">
+        <p class="bkt rv">[ 01 ] — Featured</p>
+        <p class="sc rv">Избрани творби</p>
+        <h2 class="rv">В центъра <em>на вниманието</em></h2>
+        <div class="dv rv"><span class="m" data-d="s" data-s="15"></span><b>◆</b><span class="m mir" data-d="s" data-s="16"></span></div>
+      </div>
+      <div id="srows"></div>
+    </div>
+  </section>
+
+  <section class="band cur" id="kurator">
+    <span class="dc d-bl" data-d="c" data-s="24"></span><div class="pet" id="pet2" aria-hidden="true"></div>
+    <div class="sec"><div class="cu">
+      <p class="bkt rv">[ 02 ] — Curator’s Note</p>
+      <h2 class="rv">Бележка на <em>куратора</em></h2>
+      <div class="cuc rv">
+        <p>Акварелите на Марк Курджиев започват там, където водата среща светлината. Роден в Барселона и работещ във Велико Търново, той рисува пейзажи, натюрморти и цветя, в които цветът е оставен да тече, а границата между контролирано и случайно е част от самия сюжет.</p>
+        <p>Тежката памучна хартия и прозрачните слоеве дават на творбите му дълбочина и тишина. В някои от тях — като „В света на приказките“ — акварелът се среща с пастел и туш и превръща въображението в живописна среда.</p>
+        <p>Участието му в „100 Artists of Europe“, изложбите в галерия „Паспарту“ и отличието от Picasso Concept Art Awards очертават пътя на млад автор, който е готов да излезе отвъд локалната сцена — към Испания, Франция и Корея.</p>
+      </div>
+      <div class="qt rv">Светлината, която още не е изсъхнала.</div>
+      <div class="cuf rv">Marc Gallery · Куратори</div>
+    </div></div>
   </section>
 
   <section class="band wall" id="stena">
@@ -388,7 +441,7 @@ dialog[open]{animation:pop .55s var(--e)}@keyframes pop{from{opacity:0;transform
           <p class="err" id="cmErr"></p>
           <button class="btn" id="cmSend">Изпрати запитването</button>
           <p class="mut small" id="cmMsg"></p>
-          <p class="fine">Цената и срокът са ориентировъчни и се потвърждават след разговор. Имейлът се използва само за отговор на запитването.</p>
+          <p class="fine">Цената и срокът са ориентировъчни и се потвърждават след разговор. Имейлът се използва само за отговор на запитването. Празничната отстъпка се отнася за готовите творби в галерията.</p>
         </aside>
       </div>
     </div>
@@ -434,7 +487,7 @@ dialog[open]{animation:pop .55s var(--e)}@keyframes pop{from{opacity:0;transform
     <span class="dc d-tl" data-d="c" data-s="8"></span><span class="dc d-br" data-d="c" data-s="3"></span>
     <div class="sec">
       <div class="sh">
-        <p class="sc rv">Пътят до тук</p>
+        <p class="sc rv">Exhibition History · пътят до тук</p>
         <h2 class="rv">Изложби и <em>успехи</em></h2>
         <div class="dv rv"><span class="m" data-d="s" data-s="6"></span><b>◆</b><span class="m mir" data-d="s" data-s="1"></span></div>
       </div>
@@ -458,7 +511,7 @@ dialog[open]{animation:pop .55s var(--e)}@keyframes pop{from{opacity:0;transform
         <p class="sub rv">Отличия, сертификати и участия, които отвеждат акварелите от Велико Търново по света.</p>
       </div>
       <div class="ag">
-        <article class="ac cf rv" style="--c:#4f8fb8"><div class="ic">◆</div><div class="dt">6 ноември 2026</div><h3>Picasso Concept Art Awards</h3><p><b>Diamond Certificate</b> — отличие, спечелено на 6 ноември 2026 г.</p></article>
+        <article class="ac cf rv" style="--c:#4f8fb8"><div class="ic">◆</div><div class="dt">6 ноември 2026</div><h3>Picasso Concept Art Awards</h3><p><b>Diamond Artist</b> · Diamond Certificate — отличие, спечелено на 6 ноември 2026 г.</p></article>
         <article class="ac cf rv" style="--c:var(--ol)"><div class="ic">❖</div><div class="dt">8 – 11 август 2025</div><h3>International Youth Watercolor Festival</h3><p><b>Certificate of Participation</b> — участие в международния младежки фестивал на акварела.</p></article>
         <article class="ac cf rv" style="--c:var(--plum)"><div class="ic">✦</div><div class="dt">Международно присъствие</div><h3>Корея · Испания · Франция</h3><p>Творби и творчески презентации на Марк са показвани на международно ниво в Корея, Испания и Франция.</p></article>
       </div>
@@ -489,7 +542,7 @@ dialog[open]{animation:pop .55s var(--e)}@keyframes pop{from{opacity:0;transform
   <div class="fw">
     <div class="fg">
       <div><div class="fb">Marc Gallery</div><p>Авторско изкуство и акварели от Марк Курджиев.</p><p>Mark Art · Mark Watercolor</p><p>Велико Търново / Barcelona</p></div>
-      <div><h4>Навигация</h4><ul><li><a href="#galeria">Галерия</a></li><li><a href="#stena">Пробна за стена</a></li><li><a href="#poruchka">Поръчка по избор</a></li><li><a href="#sertifikat">Сертификат</a></li><li><a href="#vip">VIP списък</a></li><li><a href="#izlozhbi">Изложби</a></li><li><a href="#nagradi">Награди</a></li><li><a href="#za-mene">За мен</a></li><li><a href="#" id="fcart">Моята количка</a></li></ul></div>
+      <div><h4>Навигация</h4><ul><li><a href="#aktsia">Празнична акция</a></li><li><a href="#galeria">Галерия</a></li><li><a href="#izbrani">Избрани творби</a></li><li><a href="#kurator">Бележка на куратора</a></li><li><a href="#stena">Пробна за стена</a></li><li><a href="#poruchka">Поръчка по избор</a></li><li><a href="#sertifikat">Сертификат</a></li><li><a href="#vip">VIP списък</a></li><li><a href="#izlozhbi">Изложби</a></li><li><a href="#nagradi">Награди</a></li><li><a href="#za-mene">За мен</a></li><li><a href="#" id="fcart">Моята количка</a></li></ul></div>
       <div><h4>За мен</h4><p>Млад акварелист и моден илюстратор. 2 успешни изложби, мои картини има в Испания и Франция.</p><p><a href="#za-mene">Прочети повече</a></p></div>
       <div><h4>Информация</h4><p>Имейл и контакт: <a id="fmail"></a></p><p>DM: пиши ми в Instagram <a href="https://www.instagram.com/mcarte_/" target="_blank" rel="noopener">@mcarte_</a></p><p>Сайт: <a href="https://marcgallery.eu">marcgallery.eu</a></p><p>Поръчки и картини по поръчка — пиши ми в Instagram или Facebook.</p><p class="fc">Всяка картина върви със сертификат за автентичност.</p></div>
     </div>
@@ -539,7 +592,7 @@ const SITE = {
     ["100 Artists of Europe — декември 2025", "Включване в проекта на Culturale Lab."],
     ["Да вървим напред — януари/февруари 2026", "Съвместна изложба с Дона Георгиева, галерия „Паспарту“."],
     ["Слънчеви мигове — август/септември 2026", "Самостоятелна изложба, галерия „Паспарту“, Велико Търново."],
-    ["Picasso Concept Art Awards — 6 ноември 2026", "Diamond Certificate."]
+    ["Picasso Concept Art Awards — 6 ноември 2026", "Diamond Artist · Diamond Certificate."]
   ],
   materials: ["Акварелни бои и четки", "Тежка акварелна хартия", "Пастел и туш — в творбите със смесена техника"],
   social: [
@@ -552,51 +605,44 @@ const SITE = {
 /* ===================== ТВОРБИ — нова картина = нов ред най-горе (id + снимка в IMG) =====================
    tech: техника (по подразбиране „Акварел“) · size, desc — по желание · sold:true = „Продадена“
    type: landscape | nature | stilllife | fantasy. Решетката е готова за до 40 творби.            */
-const PROMO_ACTIVE = true;   // 17 ноември – 17 декември (-20% на всички картини)
-const PROMO_DISCOUNT = 0.20;
-const BUNDLE_SECOND_DISCOUNT = 0.30;
-
-const STATUS_LABEL = {
-  available: "Налична",
-  reserved: "Резервирана",
-  private: "Частна колекция",
-  sold: "Продадена"
-};
-
 const CATS = {all:"Всички", landscape:"Пейзажи", nature:"Цветя и природа", stilllife:"Натюрморти", fantasy:"Фантазия"};
 const ARTS = [
-  {id:17,title:"Октомврийска тишина",                type:"stilllife", price:140, status:"available"},
-  {id:1, title:"Залез над залива",                   type:"landscape", price:160, status:"available"},
-  {id:2, title:"Дарове на есента",                   type:"nature",    price:150, sold:true, status:"private"},
-  {id:3, title:"Ирисова светлина",                   type:"nature",    price:140, status:"available"},
-  {id:4, title:"Памукова светлина",                  type:"nature",    price:130, status:"available"},
-  {id:5, title:"Ефир",                               type:"nature",    price:140, status:"available"},
-  {id:6, title:"Танцът на медузите",                 type:"nature",    price:170, sold:true, status:"private"},
-  {id:7, title:"Преплетени мелодии в охри и пурпур", type:"nature",    price:120, status:"available"},
-  {id:8, title:"Тиквени цветове",                    type:"nature",    price:120, status:"available"},
-  {id:9, title:"В света на приказките",              type:"fantasy",   price:160, size:"60 × 45 см", tech:"Смесена техника", status:"available"},
-  {id:10,title:"Тиха улица",                         type:"landscape", price:140, status:"available"},
-  {id:11,title:"Дарове на есента",                   type:"stilllife", price:120, size:"35 × 45 см", status:"available"},
-  {id:12,title:"Ориенталска сиеста",                 type:"stilllife", price:130, size:"40 × 43 см", status:"available"},
-  {id:13,title:"Светлината над манастира",           type:"landscape", price:150, size:"45 × 63 см", status:"available"},
-  {id:14,title:"Синият прозорец",                    type:"landscape", price:110, status:"available"},
-  {id:15,title:"Чайник и цветя",                     type:"stilllife", price:150, status:"available"},
-  {id:16,title:"Тоскански нюанси",                   type:"landscape", price:130, size:"46 × 40 см", status:"available"}
+  {id:17,title:"Октомврийска тишина",                type:"stilllife", price:140, note:"Арката рамкира есенния натюрморт като прозорец към небето — тиквите и цветята са подредени в тишина, а светлината пада върху плочите като последно топло напомняне за лятото."},
+  {id:1, title:"Залез над залива",                   type:"landscape", price:160, note:"Небето гори в корал и охра, докато две лодки почиват в заливчето. Контрастът между топлите облаци и студените им сенки е сърцето на композицията."},
+  {id:2, title:"Дарове на есента",                   type:"nature",    price:150, sold:true},
+  {id:3, title:"Ирисова светлина",                   type:"nature",    price:140, note:"Една единствена пурпурна глава на ирис, очертана с тънка линия и оставена да плува в нежно размит фон — портрет на цвете, а не просто изображение."},
+  {id:4, title:"Памукова светлина",                  type:"nature",    price:130},
+  {id:5, title:"Ефир",                               type:"nature",    price:140},
+  {id:6, title:"Танцът на медузите",                 type:"nature",    price:170, sold:true},
+  {id:7, title:"Преплетени мелодии в охри и пурпур", type:"nature",    price:120},
+  {id:8, title:"Тиквени цветове",                    type:"nature",    price:120},
+  {id:9, title:"В света на приказките",              type:"fantasy",   price:160, size:"60 × 45 см", tech:"Смесена техника"},
+  {id:10,title:"Тиха улица",                         type:"landscape", price:140},
+  {id:11,title:"Дарове на есента",                   type:"stilllife", price:120, size:"35 × 45 см"},
+  {id:12,title:"Ориенталска сиеста",                 type:"stilllife", price:130, size:"40 × 43 см"},
+  {id:13,title:"Светлината над манастира",           type:"landscape", price:150, size:"45 × 63 см"},
+  {id:14,title:"Синият прозорец",                    type:"landscape", price:110},
+  {id:15,title:"Чайник и цветя",                     type:"stilllife", price:150},
+  {id:16,title:"Тоскански нюанси",                   type:"landscape", price:130, size:"46 × 40 см"}
 ];
-
-const getStatus = a => a.status || (a.sold ? "private" : "available");
-const isUnavailable = a => a.sold || getStatus(a) !== "available";
-const salePrice = a => PROMO_ACTIVE ? Math.round(a.price * (1 - PROMO_DISCOUNT)) : a.price;
-const priceHtml = a => {
-  const sp = salePrice(a);
-  if (isUnavailable(a)) return `<span class="pr">${money(a.price)}</span>`;
-  return PROMO_ACTIVE
-    ? `<span class="pr-wrap"><span class="pr-old">${money(a.price)}</span><span class="pr-new">${money(sp)}</span></span>`
-    : `<span class="pr">${money(a.price)}</span>`;
-};
 /* ============================================================================ */
+/* ===== празнична кампания, статуси, цени ===== */
+const PROMO = {from:"2026-11-17", to:"2026-12-17", pct:20, bundlePct:30};   // кампания: −20% на всички творби; комплект: втората (по-ниската цена) с −30%
+const PON = (Date.now() >= new Date(PROMO.from + "T00:00:00") && Date.now() <= new Date(PROMO.to + "T23:59:59")) || (/[?&]promo=1/.test(location.search) && !/marcgallery\.eu$/.test(location.hostname));
+const ST = {available:"Налична", reserved:"Резервирана", private:"Частна колекция", sold:"Продадена"};   // статус на творбата: status:"reserved" | "private" | sold:true
+const normArts = () => ARTS.forEach(a => { a.st = a.sold ? "sold" : (a.status || "available"); a.buy = a.st === "available"; });
+normArts();
+const sale = a => PON ? Math.round(a.price * (100 - PROMO.pct)) / 100 : a.price;
+function calcCart(l){
+  const rows = l.map(a => ({a, base:a.price, sale:sale(a)})).sort((x, y) => y.sale - x.sale);
+  let sub = 0, promo = 0, bundle = 0;
+  rows.forEach((r, i) => { r.bd = (PON && i % 2 === 1) ? Math.round(r.sale * PROMO.bundlePct) / 100 : 0; r.final = Math.round((r.sale - r.bd) * 100) / 100; sub += r.base; promo += r.base - r.sale; bundle += r.bd; });
+  return {rows, sub, promo, bundle, total: Math.round((sub - promo - bundle) * 100) / 100};
+}
+const pHTML = a => PON && a.buy ? `<s>${money(a.price)}</s> <b>${money(sale(a))}</b>` : money(a.price);
+const priceTxt = a => a.st === "private" ? "Не се продава" : a.st === "sold" ? money(a.price) : pHTML(a);
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
-const money = n => n.toLocaleString("bg-BG") + " " + SITE.currency;
+const money = n => n.toLocaleString("bg-BG", {minimumFractionDigits: Number.isInteger(n) ? 0 : 2, maximumFractionDigits: 2}) + " " + SITE.currency;
 const tech = a => a.tech || "Акварел";
 const DESC = "Оригинална авторска творба на Марк Курджиев. Придружава се от сертификат за автентичност и се изпраща опакована и защитена.";
 const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;");
@@ -606,7 +652,7 @@ const save = () => { try { localStorage.setItem("mg-cart", JSON.stringify(cart))
 let tt; const toast = m => { const t = $("#toast"); t.textContent = m; t.classList.add("show"); clearTimeout(tt); tt = setTimeout(() => t.classList.remove("show"), 2600); };
 const vis = () => ARTS.filter(a => filter === "all" || a.type === filter);
 const imgOf = a => IMG[a.id];
-const G = ["#4a5d2a","#6b8a3a","#87a64f","#2f4a1e","#a3b872"], FL = ["#e2603f","#f0b429","#9fd0ee","#e8869b","#7a3b5c"], MC = ["#e2603f","#f0b429","#9fd0ee","#7a9a4a","#e8869b","#8a5a9c"];
+const GD = ["#1f4a40","#2f6a55","#3b7a62","#17332e","#5a9a76"], FD = ["#d34a3a","#e6a23c","#3a6db0","#a24a8c","#ecd28a"], G = ["#4a5d2a","#6b8a3a","#87a64f","#2f4a1e","#a3b872"], FL = ["#e2603f","#f0b429","#9fd0ee","#e8869b","#7a3b5c"], MC = ["#e2603f","#f0b429","#9fd0ee","#7a9a4a","#e8869b","#8a5a9c"];
 
 /* меню-overlay */
 const ov = $("#ov"), bg = $("#burger");
@@ -616,8 +662,8 @@ $$("#ov nav a").forEach(a => a.addEventListener("click", () => setOv(false)));
 document.addEventListener("keydown", e => { if(e.key === "Escape") setOv(false); });
 
 /* hero, лента, портрет */
-const f = ARTS.find(a => !a.sold) || ARTS[0];
-$("#hf").innerHTML = `<button class="fr" data-o="${f.id}" aria-label="Детайли: ${f.title}"><div class="im"><img src="${imgOf(f)}" alt="${f.title}"></div>${[1,2,3,4].map(i => `<svg class="cn c${i}" aria-hidden="true"><use href="#flr"/></svg>`).join("")}</button><figcaption><span><i>${f.title}</i><small>${tech(f)} · оригинал със сертификат</small></span><b>${PROMO_ACTIVE ? `<s style="opacity:.6;font-size:.85em;margin-right:6px">${money(f.price)}</s>${money(salePrice(f))}` : money(f.price)}</b></figcaption>`;
+const f = ARTS.find(a => a.buy) || ARTS[0];
+$("#hf").innerHTML = `<button class="fr" data-o="${f.id}" aria-label="Детайли: ${f.title}"><div class="im"><img src="${imgOf(f)}" alt="${f.title}"></div>${[1,2,3,4].map(i => `<svg class="cn c${i}" aria-hidden="true"><use href="#flr"/></svg>`).join("")}</button><figcaption><span><i>${f.title}</i><small>${tech(f)} · оригинал със сертификат</small></span><b>${pHTML(f)}</b></figcaption>`;
 const strip = ARTS.map((a, i) => `<img src="${imgOf(a)}" alt="${a.title}" data-o="${a.id}" loading="lazy" style="--m:${MC[i % MC.length]}">`).join("");
 $("#trk").innerHTML = strip + strip;
 $("#portrait").src = $("#portrait2").src = IMG.mark;
@@ -628,11 +674,7 @@ function renderFilters(){
   $$("#fl button").forEach(b => b.onclick = () => { filter = b.dataset.k; renderFilters(); renderGrid(); });
 }
 function renderGrid(){
-  $("#grid").innerHTML = vis().map((a, i) => {
-    const st = getStatus(a), unavail = isUnavailable(a);
-    const badgeClass = st === "reserved" ? " r" : (st === "private" || st === "sold" ? " p" : "");
-    return `<article class="card rv${unavail ? " sold" : ""}" style="--m:${MC[i % MC.length]}"><button class="mat" data-o="${a.id}" aria-label="Преглед: ${a.title}"><div class="pp"><div class="im"><img src="${imgOf(a)}" alt="${a.title}" loading="lazy"></div></div><span class="bd${badgeClass}">${STATUS_LABEL[st]}</span><span class="vw">Преглед</span></button><div class="cb"><h3>${a.title}</h3><p class="mt">${tech(a)}${a.size ? " · " + a.size : ""}</p><div class="r2">${priceHtml(a)}${unavail ? "" : `<button class="lk" data-a="${a.id}">В количката</button>`}</div></div></article>`;
-  }).join("");
+  $("#grid").innerHTML = vis().map((a, i) => `<article class="card rv st-${a.st}${a.buy ? "" : " sold"}" style="--m:${MC[i % MC.length]}"><button class="mat" data-o="${a.id}" aria-label="Преглед: ${a.title}"><div class="pp"><div class="im"><img src="${imgOf(a)}" alt="${a.title}" loading="lazy"></div></div><span class="bd ${a.st}">${ST[a.st]}</span>${PON && a.buy ? `<span class="pt2">−${PROMO.pct}%</span>` : ""}<span class="vw">Преглед</span></button><div class="cb"><h3>${a.title}</h3><p class="mt">${tech(a)}${a.size ? " · " + a.size : ""}</p><div class="r2"><span class="pr">${priceTxt(a)}</span>${a.buy ? `<button class="lk" data-a="${a.id}">В количката</button>` : ""}</div></div></article>`).join("");
   reveal($("#grid"));
 }
 document.addEventListener("click", e => {
@@ -647,12 +689,8 @@ function reveal(root){
 /* lightbox */
 function openLb(id){
   const a = ARTS.find(x => x.id === id); if(!a) return; cur = id;
-  const st = getStatus(a), unavail = isUnavailable(a), sp = salePrice(a);
   $("#lbImg").src = imgOf(a); $("#lbImg").alt = a.title;
-  const lbPrice = unavail
-    ? `<span class="pr" style="text-decoration:line-through;opacity:.55">${money(a.price)}</span>`
-    : (PROMO_ACTIVE ? `<span class="pr"><s style="font-size:.6em;opacity:.6;margin-right:8px">${money(a.price)}</s>${money(sp)}</span>` : `<span class="pr">${money(a.price)}</span>`);
-  $("#lbT").innerHTML = `<p class="k">${CATS[a.type] || "Акварел"}</p><h3>${a.title}</h3><dl><dt>Техника</dt><dd>${tech(a)}</dd>${a.size ? `<dt>Размер</dt><dd>${a.size}</dd>` : ""}<dt>Статус</dt><dd>${STATUS_LABEL[st]}</dd><dt>Сертификат</dt><dd>Да — за автентичност</dd></dl><p>${a.desc || DESC}</p><div class="buy">${lbPrice}${unavail ? `<span class="k" style="margin:0">${STATUS_LABEL[st]}</span>` : '<button class="btn" id="lbAdd">Добави в количката</button>'}</div>`;
+  $("#lbT").innerHTML = `<p class="k">${CATS[a.type] || "Акварел"} · <span class="stx ${a.st}">${ST[a.st]}</span></p><h3>${a.title}</h3><dl><dt>Техника</dt><dd>${tech(a)}</dd>${a.size ? `<dt>Размер</dt><dd>${a.size}</dd>` : ""}<dt>Статус</dt><dd>${ST[a.st]}</dd><dt>Сертификат</dt><dd>Да — за автентичност</dd></dl>${a.note ? `<p class="cn2"><b>Бележка на куратора</b>${a.note}</p>` : ""}<p>${a.desc || DESC}</p><div class="buy"><span class="pr">${a.st === "sold" ? "<s>" + money(a.price) + "</s>" : priceTxt(a)}</span>${a.buy ? '<button class="btn" id="lbAdd">Добави в количката</button>' : `<span class="k" style="margin:0">${ST[a.st]}</span>`}</div>`;
   const b = $("#lbAdd"); if(b) b.onclick = () => { $("#lb").close(); add(a.id); };
   $("#lbT").insertAdjacentHTML("beforeend", '<button class="lk2" id="lbWall">Пробна за стена →</button>'); $("#lbWall").onclick = () => { $("#lb").close(); tryWall(a.id); };
   if(!$("#lb").open) $("#lb").showModal();
@@ -662,30 +700,15 @@ $("#lbX").onclick = () => $("#lb").close(); $("#lbP").onclick = () => step(-1); 
 $("#lb").addEventListener("keydown", e => { if(e.key === "ArrowLeft") step(-1); if(e.key === "ArrowRight") step(1); });
 
 /* количка и поръчка */
-const items = () => Object.keys(cart).map(id => ARTS.find(a => a.id == id)).filter(a => a && !isUnavailable(a));
-function calcCartTotals(list){
-  const priced = list.map(a => ({...a, unitPrice: salePrice(a)})).sort((x, y) => y.unitPrice - x.unitPrice);
-  let bundleDiscount = 0, discountedItem = null;
-  if (priced.length >= 2) {
-    discountedItem = priced[priced.length - 1];
-    bundleDiscount = Math.round(discountedItem.unitPrice * BUNDLE_SECOND_DISCOUNT);
-  }
-  const subtotal = priced.reduce((s, a) => s + a.unitPrice, 0);
-  const finalTotal = subtotal - bundleDiscount;
-  return {priced, subtotal, bundleDiscount, discountedItem, finalTotal};
-}
+const items = () => Object.keys(cart).map(id => ARTS.find(a => a.id == id)).filter(a => a && a.buy);
 function add(id){ cart[id] = 1; save(); renderCart(); toast("Добавена в количката"); }
 function renderCart(){ const n = items().length, c = $("#count"); c.textContent = n; c.hidden = !n; }
 function renderOrder(){
-  const l = items();
-  const {priced, bundleDiscount, discountedItem, finalTotal} = calcCartTotals(l);
-  let html = priced.length ? priced.map(a => `<div class="row"><img src="${imgOf(a)}" alt=""><div><strong>${a.title}</strong><br><small>${tech(a)} · ${PROMO_ACTIVE ? `<s>${money(a.price)}</s> ` : ""}${money(a.unitPrice)}</small></div><button data-r="${a.id}">Премахни</button></div>`).join("") : '<p class="empty">Количката е празна. Добави творба от галерията.</p>';
-  if (bundleDiscount > 0 && discountedItem) {
-    html += `<div class="bundle-line"><span>✦ Пакетна отстъпка -30% за „${discountedItem.title}“</span><b>-${money(bundleDiscount)}</b></div>`;
-  }
-  $("#items").innerHTML = html;
+  const l = items(), c = calcCart(l);
+  $("#items").innerHTML = (l.length ? c.rows.map(r => `<div class="row"><img src="${imgOf(r.a)}" alt=""><div><strong>${r.a.title}</strong><br><small>${tech(r.a)} · ${PON ? `<s>${money(r.base)}</s> ` : ""}${money(r.final)}${r.bd ? ` <em class="bn">(−${PROMO.bundlePct}% комплект)</em>` : ""}</small></div><button data-r="${r.a.id}">Премахни</button></div>`).join("") : '<p class="empty">Количката е празна. Добави творба от галерията.</p>') + (PON && l.length === 1 ? `<p class="upsell">Добави още една творба — втората (с по-ниската цена) е с допълнителни −${PROMO.bundlePct}%!</p>` : "");
   $$("#items [data-r]").forEach(b => b.onclick = () => { delete cart[b.dataset.r]; save(); renderCart(); renderOrder(); });
-  $("#oFields").hidden = $("#oTotal").hidden = !l.length; $("#total").textContent = money(finalTotal);
+  $("#oFields").hidden = $("#oTotal").hidden = !l.length;
+  $("#oTotal").innerHTML = (PON && l.length ? `<div class="sm"><span>Междинна сума</span><span>${money(c.sub)}</span></div><div class="sm"><span>Празнична отстъпка −${PROMO.pct}%</span><span>−${money(c.promo)}</span></div>${c.bundle ? `<div class="sm"><span>Комплект: втората с −${PROMO.bundlePct}%</span><span>−${money(c.bundle)}</span></div>` : ""}` : "") + `<div class="tt"><span>Общо</span><span id="total">${money(c.total)}</span></div>`;
 }
 function openOrder(){ $("#oForm").hidden = false; $("#oDone").hidden = true; $("#oErr").textContent = ""; $("#oSend").disabled = false; renderOrder(); $("#od").showModal(); }
 $("#openCart").onclick = openOrder; $("#fcart").onclick = e => { e.preventDefault(); openOrder(); };
@@ -694,13 +717,12 @@ $("#od").addEventListener("click", e => { if(e.target === $("#od")) $("#od").clo
 $("#oSend").onclick = async () => {
   const n = $("#oName").value.trim(), ph = $("#oPhone").value.trim(), ad = $("#oAddr").value.trim(), pay = document.querySelector("input[name=pay]:checked").value;
   if(!n || ph.replace(/\D/g, "").length < 6 || !ad){ $("#oErr").textContent = "Попълни имена, телефон и адрес за доставка."; return; }
-  const l = items(), {priced, bundleDiscount, discountedItem, finalTotal: sum} = calcCartTotals(l), ref = "MG-" + Date.now().toString(36).toUpperCase();
-  const bundleNote = bundleDiscount > 0 && discountedItem ? `\nПакетна отстъпка (-30% за втора творба „${discountedItem.title}“): -${money(bundleDiscount)}` : "";
-  const t = `Поръчка ${ref}\nИмена: ${n}\nТелефон: ${ph}\nАдрес: ${ad}\nПлащане: ${pay === "revolut" ? "Revolut" : "Наложен платеж"}\n\n` + priced.map(a => `• ${a.title}${a.size ? " (" + a.size + ")" : ""} — ${money(a.unitPrice)}${PROMO_ACTIVE ? ` (редовна: ${money(a.price)}, -20%)` : ""}`).join("\n") + bundleNote + `\n\nОбщо: ${money(sum)}`;
+  const l = items(), c = calcCart(l), ref = "MG-" + Date.now().toString(36).toUpperCase();
+  const t = `Поръчка ${ref}\nИмена: ${n}\nТелефон: ${ph}\nАдрес: ${ad}\nПлащане: ${pay === "revolut" ? "Revolut" : "Наложен платеж"}\n\n` + c.rows.map(r => `• ${r.a.title}${r.a.size ? " (" + r.a.size + ")" : ""} — ${money(r.base)}${PON ? " → " + money(r.final) : ""}`).join("\n") + (PON ? `\n\nМеждинна сума: ${money(c.sub)}\nПразнична отстъпка −${PROMO.pct}%: −${money(c.promo)}${c.bundle ? `\nКомплект (втората −${PROMO.bundlePct}%): −${money(c.bundle)}` : ""}` : "") + `\n\nОбщо: ${money(c.total)}`;
   const mail = `mailto:${SITE.email}?subject=${encodeURIComponent("Нова поръчка " + ref + " — Marc Gallery")}&body=${encodeURIComponent(t)}`;
   $("#oSend").disabled = true; let sent = false;
-  if(SITE.orderEndpoint){ try { const r = await fetch(SITE.orderEndpoint, {method:"POST", headers:{"Content-Type":"application/json", Accept:"application/json"}, body:JSON.stringify({ref, name:n, phone:ph, address:ad, payment:pay, total:sum, bundleDiscount, currency:"EUR", items:priced.map(a => ({id:a.id, title:a.title, price:a.unitPrice, regularPrice:a.price})), text:t})}); sent = r.ok; } catch(e){} }
-  const pi = pay === "revolut" ? (SITE.revolutLink ? `<p>Сума: <b>${money(sum)}</b>. В основанието напиши <b>${ref}</b>.</p><p><a class="btn" href="${SITE.revolutLink}" target="_blank" rel="noopener">Плати с Revolut</a></p>` : `<p>Ще се свържа с теб на телефона, за да уточним плащането с Revolut. Сума: <b>${money(sum)}</b>.</p>`) : `<p>Плащаш <b>${money(sum)}</b> при доставка (наложен платеж).</p>`;
+  if(SITE.orderEndpoint){ try { const r = await fetch(SITE.orderEndpoint, {method:"POST", headers:{"Content-Type":"application/json", Accept:"application/json"}, body:JSON.stringify({ref, name:n, phone:ph, address:ad, payment:pay, total:c.total, currency:"EUR", items:c.rows.map(r => ({id:r.a.id, title:r.a.title, price:r.final})), text:t})}); sent = r.ok; } catch(e){} }
+  const pi = pay === "revolut" ? (SITE.revolutLink ? `<p>Сума: <b>${money(c.total)}</b>. В основанието напиши <b>${ref}</b>.</p><p><a class="btn" href="${SITE.revolutLink}" target="_blank" rel="noopener">Плати с Revolut</a></p>` : `<p>Ще се свържа с теб на телефона, за да уточним плащането с Revolut. Сума: <b>${money(c.total)}</b>.</p>`) : `<p>Плащаш <b>${money(c.total)}</b> при доставка (наложен платеж).</p>`;
   $("#oDone").innerHTML = `<h3>Благодаря!</h3><p>Поръчка <b>${ref}</b> е приета${sent ? " и изпратена." : ". Ако имейлът не се отвори автоматично, натисни „Изпрати по имейл“, за да стигне поръчката до мен."}</p>${pi}<pre>${esc(t)}</pre><p><a class="btn" href="${mail}">Изпрати по имейл</a> <button class="btn gh" id="oCopy">Копирай</button> <button class="btn gh" id="oClose">Готово</button></p>`;
   $("#oForm").hidden = true; $("#oDone").hidden = false;
   $("#oClose").onclick = () => $("#od").close();
@@ -725,16 +747,17 @@ $("#hd").classList.toggle("sc", scrollY > 30);
 /* растителни мотиви, генерирани с код */
 const rnd = s => { s = Math.sin(s) * 10000; return s - Math.floor(s); };
 const leaf = (L, w) => `M0 0C${L*.25} ${-w} ${L*.75} ${-w} ${L} 0C${L*.75} ${w} ${L*.25} ${w} 0 0Z`;
-function cluster(seed){
+function cluster(seed, dark){
+  const g = dark ? GD : G, f = dark ? FD : FL, st = dark ? "#2a5a48" : "#3f5a2a";
   const R = i => rnd(seed * 12.9898 + i * 78.233); let s = '<svg viewBox="0 0 420 420" aria-hidden="true">';
   for(let i = 0; i < 10; i++){
     const a = -98 + i * 10.5 + R(i) * 6, len = 150 + R(i + 20) * 190, r = a * Math.PI / 180, x2 = 24 + Math.cos(r) * len, y2 = 396 + Math.sin(r) * len;
-    s += `<path d="M24 396Q${((24 + x2) / 2 + 36 * (R(i + 40) - .5)).toFixed(1)} ${((396 + y2) / 2 + 36 * (R(i + 50) - .5)).toFixed(1)} ${x2.toFixed(1)} ${y2.toFixed(1)}" fill="none" stroke="#3f5a2a" stroke-width="2.2"/>`;
-    for(let j = 1; j <= 5; j++){ const t = j / 6, px = 24 + (x2 - 24) * t, py = 396 + (y2 - 396) * t, L = 30 + R(i * 7 + j) * 30; s += `<path transform="translate(${px.toFixed(1)} ${py.toFixed(1)}) rotate(${(a + (j % 2 ? 44 : -44)).toFixed(1)})" d="${leaf(L, L * .3)}" fill="${G[(i + j) % 5]}" opacity=".95"/>`; }
-    s += `<path transform="translate(${x2.toFixed(1)} ${y2.toFixed(1)}) rotate(${a.toFixed(1)})" d="${leaf(36, 10)}" fill="${G[i % 5]}"/>`;
-    if(i % 3 === 0) s += `<circle cx="${x2.toFixed(1)}" cy="${y2.toFixed(1)}" r="5" fill="${FL[(i + seed) % 5]}"/>`;
+    s += `<path d="M24 396Q${((24 + x2) / 2 + 36 * (R(i + 40) - .5)).toFixed(1)} ${((396 + y2) / 2 + 36 * (R(i + 50) - .5)).toFixed(1)} ${x2.toFixed(1)} ${y2.toFixed(1)}" fill="none" stroke="${st}" stroke-width="2.2"/>`;
+    for(let j = 1; j <= 5; j++){ const t = j / 6, px = 24 + (x2 - 24) * t, py = 396 + (y2 - 396) * t, L = 30 + R(i * 7 + j) * 30; s += `<path transform="translate(${px.toFixed(1)} ${py.toFixed(1)}) rotate(${(a + (j % 2 ? 44 : -44)).toFixed(1)})" d="${leaf(L, L * .3)}" fill="${g[(i + j) % 5]}" opacity=".95"/>`; }
+    s += `<path transform="translate(${x2.toFixed(1)} ${y2.toFixed(1)}) rotate(${a.toFixed(1)})" d="${leaf(36, 10)}" fill="${g[i % 5]}"/>`;
+    if(i % 3 === 0) s += `<circle cx="${x2.toFixed(1)}" cy="${y2.toFixed(1)}" r="5" fill="${f[(i + seed) % 5]}"/>`;
   }
-  [[70,300,86],[170,200,104],[290,290,72],[120,110,60],[250,110,78]].forEach(([x, y, r], i) => { s += `<svg x="${x - r / 2}" y="${y - r / 2}" width="${r}" height="${r}" viewBox="0 0 100 100" style="color:${FL[(i + seed) % 5]}"><use href="#blm"/></svg>`; });
+  [[70,300,86],[170,200,104],[290,290,72],[120,110,60],[250,110,78]].forEach(([x, y, r], i) => { s += `<svg x="${x - r / 2}" y="${y - r / 2}" width="${r}" height="${r}" viewBox="0 0 100 100" style="color:${f[(i + seed) % 5]}"><use href="#blm"/></svg>`; });
   return s + "</svg>";
 }
 function sprig(seed){
@@ -744,7 +767,7 @@ function sprig(seed){
   for(let j = 1; j <= 10; j++){ const [x, y] = pt(j / 11), L = 16 + R(j) * 10; s += `<path transform="translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${j % 2 ? -48 : 48})" d="${leaf(L, L * .32)}" fill="${G[j % 5]}"/>`; }
   return s + `<svg x="226" y="16" width="30" height="30" viewBox="0 0 100 100" style="color:${FL[seed % 5]}"><use href="#blm"/></svg></svg>`;
 }
-$$("[data-d]").forEach(el => { const s = +el.dataset.s || 1; el.innerHTML = el.dataset.d === "c" ? cluster(s) : sprig(s); });
+$$("[data-d]").forEach(el => { const s = +el.dataset.s || 1; el.innerHTML = el.dataset.d === "c" ? cluster(s, el.dataset.k === "d") : sprig(s); });
 $$(".cf").forEach(el => el.insertAdjacentHTML("beforeend", [1,2,3,4].map(i => `<svg class="cn c${i}" aria-hidden="true"><use href="#flr"/></svg>`).join("")));
 /* ===== поръчка по избор, пробна за стена, VIP ===== */
 /* ориентировъчни цени (€) и срокове (дни) — редактирай тук */
@@ -807,9 +830,25 @@ $("#stena").addEventListener("click", e => {
 });
 ARTS.forEach(a => { const i = new Image(); i.onload = () => { AR[a.id] = i.naturalWidth > i.naturalHeight; if(a.id === wallId) renderWall(); }; i.src = IMG[a.id]; });
 function tryWall(id){ wallId = id; renderWall(); $("#stena").scrollIntoView({behavior:"smooth"}); }
+/* ===== кампания: банер, обратно броене, комплект, избрани творби, листенца ===== */
+function petals(el, cols){ let s = ""; for(let i = 0; i < 16; i++){ s += `<i style="left:${(rnd(i * 3.3 + 1) * 100).toFixed(1)}%;--d:${(9 + rnd(i + 7) * 9).toFixed(1)}s;--dl:${(-rnd(i + 2) * 18).toFixed(1)}s;--s:${(.6 + rnd(i + 5) * 1.1).toFixed(2)};background:${cols[i % cols.length]}"></i>`; } el.innerHTML = s; }
+petals($("#pet2"), ["#e2603f", "#e8869b", "#f0b429"]);
+if(PON){
+  document.body.classList.add("promo"); $("#pbar").hidden = false; $("#aktsia").hidden = false;
+  petals($("#pet1"), ["#c0392b", "#e6a23c", "#d96b8a"]);
+  const tick = () => { const ms = new Date(PROMO.to + "T23:59:59") - Date.now(); if(ms <= 0) return; $("#cdD").textContent = Math.floor(ms / 864e5); $("#cdH").textContent = Math.floor(ms / 36e5) % 24; $("#cdM").textContent = Math.floor(ms / 6e4) % 60; $("#cdS").textContent = Math.floor(ms / 1e3) % 60; };
+  tick(); setInterval(tick, 1000);
+  const opts = ARTS.filter(a => a.buy).map(a => `<option value="${a.id}">${a.title} — ${money(a.price)}</option>`).join("");
+  $("#bA").innerHTML = $("#bB").innerHTML = opts; $("#bB").selectedIndex = Math.min(1, ARTS.filter(a => a.buy).length - 1);
+  const bc = () => { const a = ARTS.find(x => x.id == $("#bA").value), b = ARTS.find(x => x.id == $("#bB").value); if(!a || !b || a.id === b.id){ $("#bRes").innerHTML = "<p>Избери две различни творби.</p>"; return null; } const c = calcCart([a, b]); $("#bRes").innerHTML = c.rows.map(r => `<div class="sm"><span>${r.a.title}</span><span>${money(r.base)} → <b>${money(r.final)}</b></span></div>`).join("") + `<div class="tt"><span>Общо</span><span>${money(c.total)}</span></div><p class="sv">Спестяваш ${money(c.sub - c.total)}</p>`; return [a, b]; };
+  $("#bA").onchange = $("#bB").onchange = bc; bc();
+  $("#bAdd").onclick = () => { const p = bc(); if(!p) return; p.forEach(a => cart[a.id] = 1); save(); renderCart(); toast("Двете творби са в количката"); };
+} else { $$('a[href="#aktsia"]').forEach(a => { const li = a.closest("li"); (li || a).remove(); }); }
+const FEAT = [17, 1, 3];
+$("#srows").innerHTML = FEAT.map(id => ARTS.find(x => x.id === id)).filter(Boolean).map((a, i) => `<article class="sr rv"><div class="srm"><button class="fr2" data-o="${a.id}" style="--m:${MC[i % MC.length]}" aria-label="Преглед: ${a.title}"><div class="pp"><div class="im"><img src="${imgOf(a)}" alt="${a.title}" loading="lazy"></div></div></button></div><div class="srt"><p class="k">[ 0${i + 1} ] · ${CATS[a.type] || "Акварел"}</p><h3>${a.title}</h3><div class="dl2"><span>${tech(a)}</span><span>${a.size || "Оригинал със сертификат"}</span><span class="stx ${a.st}">${ST[a.st]}</span></div><p class="cn3">${a.note || ""}</p><p class="pr2">${priceTxt(a)}</p><div class="srb"><button class="btn o" data-o="${a.id}">Цял екран</button>${a.buy ? `<button class="btn" data-a="${a.id}">Добави в количката</button>` : ""}</div></div></article>`).join("");
+reveal($("#srows"));
 renderWall();
 renderFilters(); renderGrid(); renderCart(); reveal();
 </script>
 </body>
 </html>
-Processed and analyzed in code
